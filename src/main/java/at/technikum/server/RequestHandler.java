@@ -1,5 +1,10 @@
 package at.technikum.server;
 
+import at.technikum.server.http.ContentType;
+import at.technikum.server.http.HttpStatus;
+import at.technikum.server.http.Request;
+import at.technikum.server.http.Response;
+import at.technikum.server.util.HttpMapper;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,22 +29,19 @@ public class RequestHandler {
     public void handle() throws IOException {
         in = new BufferedReader(new InputStreamReader(client.getInputStream()));
 
-        System.out.println(getHttpStringFromStream(in));
+        String httpRequest = getHttpStringFromStream(in);
+
+        Request request = HttpMapper.toRequestObject(httpRequest);
+        Response response = app.handle(request);
 
         out = new PrintWriter(client.getOutputStream(), true);
-        out.write(
-                "HTTP/1.1 200 OK\r\n" +
-                        "Content-Type: text/html\r\n" +
-                        "Content-Length: 5\r\n" +
-                        "\r\n" +
-                        "Hallo");
+        out.write(HttpMapper.toResponseString(response));
 
         out.close();
         in.close();
         client.close();
     }
 
-    //kann man auch als eigene Klasse machen (SocketReader)
     private String getHttpStringFromStream(BufferedReader in) throws IOException {
         StringBuilder builder = new StringBuilder();
 
@@ -52,5 +54,4 @@ public class RequestHandler {
 
         return builder.toString();
     }
-
 }

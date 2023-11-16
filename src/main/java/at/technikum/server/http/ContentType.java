@@ -1,8 +1,17 @@
 package at.technikum.server.http;
 
+// THOUGHT: add relevant content types
 public enum ContentType {
 
-    APPLICATION_JSON,
-    TEXT_PLAIN,
-    TEXT_HTML
+    TEXT_PLAIN("text/plain");
+
+    private final String mimeType;
+
+    ContentType(String mimeType) {
+        this.mimeType = mimeType;
+    }
+
+    public String getMimeType() {
+        return mimeType;
+    }
 }
