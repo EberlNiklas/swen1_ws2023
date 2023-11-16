@@ -5,5 +5,7 @@ import at.technikum.server.http.Response;
 
 public interface Controller {
 
+    boolean supports(String route);
+
     Response handle(Request request);
 }
