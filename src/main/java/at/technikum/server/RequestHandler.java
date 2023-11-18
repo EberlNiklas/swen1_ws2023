@@ -5,6 +5,7 @@ import at.technikum.server.http.HttpStatus;
 import at.technikum.server.http.Request;
 import at.technikum.server.http.Response;
 import at.technikum.server.util.HttpMapper;
+import at.technikum.server.util.HttpResponseConverter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,6 +13,10 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+
+//Verwaltet Client Anfrage über Socket
+//Ruft Serverlogik auf
+//Generiert HTTP Antwort und sendet sie an Client
 public class RequestHandler {
 
     private BufferedReader in;
@@ -35,7 +40,9 @@ public class RequestHandler {
         Response response = app.handle(request);
 
         out = new PrintWriter(client.getOutputStream(), true);
-        out.write(HttpMapper.toResponseString(response));
+
+        //neue Klasse verwendet
+        out.write(HttpResponseConverter.convert(response));
 
         out.close();
         in.close();
