@@ -12,23 +12,18 @@ import java.util.List;
 
 public class MtcgApp implements ServerApplication {
 
-    private List<Controller> controllers = new ArrayList<>();
+    private List<AbstractController> controllers = new ArrayList<>();
 
     public MtcgApp() {
 
-        controllers.add(new UserController());
-        controllers.add(new LoginController());
-        controllers.add(new ScoreboardController());
+
         controllers.add(new CardController());
-        controllers.add(new DeckController());
-        controllers.add(new StatsController());
-        controllers.add(new TransactionController());
     }
 
     @Override
     public Response handle(Request request) {
 
-        for (Controller controller: controllers) {
+        for (AbstractController controller: controllers) {
             if (!controller.supports(request.getRoute())) {
                 continue;
             }

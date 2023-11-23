@@ -5,7 +5,7 @@ import at.technikum.server.http.HttpStatus;
 import at.technikum.server.http.Request;
 import at.technikum.server.http.Response;
 
-public class LoginController implements Controller{
+public class SessionController implements Controller{
 
     @Override
     public boolean supports(String route) {
@@ -17,7 +17,7 @@ public class LoginController implements Controller{
         Response response = new Response();
         response.setStatus(HttpStatus.OK);
         response.setContentType(ContentType.TEXT_PLAIN);
-        response.setBody("login controller");
+        response.setBody("session controller");
 
         return response;
     }

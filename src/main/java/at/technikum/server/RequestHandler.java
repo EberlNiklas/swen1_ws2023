@@ -12,6 +12,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 //Verwaltet Client Anfrage über Socket
@@ -58,6 +60,22 @@ public class RequestHandler {
                     .append(inputLine)
                     .append(System.lineSeparator());
         }
+
+        String httpRequest = builder.toString();
+
+        Pattern regex = Pattern.compile("^Content-Length:\\s(.+)", Pattern.MULTILINE);
+        Matcher matcher = regex.matcher(httpRequest);
+
+        if (!matcher.find()) {
+            return builder.toString();
+        }
+
+        builder.append(System.lineSeparator());
+
+        int contentLength = Integer.parseInt(matcher.group(1));
+        char[] buffer = new char[contentLength];
+        in.read(buffer, 0, contentLength);
+        builder.append(buffer);
 
         return builder.toString();
     }

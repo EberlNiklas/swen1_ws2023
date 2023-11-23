@@ -1,0 +1,25 @@
+package at.technikum.apps.mtcg.controller;
+
+import at.technikum.server.http.ContentType;
+import at.technikum.server.http.HttpStatus;
+import at.technikum.server.http.Request;
+import at.technikum.server.http.Response;
+
+public abstract class AbstractController {
+
+    public abstract boolean supports(String route);
+
+    public abstract Response handle(Request request);
+
+    protected Response status(HttpStatus httpStatus) {
+        Response response = new Response();
+        response.setStatus(httpStatus);
+        response.setContentType(ContentType.APPLICATION_JSON);
+        response.setBody("{ \"error\": \""+ httpStatus.getMessage() + "\"}");
+
+        return response;
+    }
+
+    // THOUGHT: more functionality e.g. ok(), json(), etc
+
+}

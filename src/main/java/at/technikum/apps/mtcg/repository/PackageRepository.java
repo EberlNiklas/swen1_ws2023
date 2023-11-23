@@ -1,4 +1,4 @@
-package at.technikum.apps.mctg.repository;
+package at.technikum.apps.mtcg.repository;
 
 public class PackageRepository {
 }
