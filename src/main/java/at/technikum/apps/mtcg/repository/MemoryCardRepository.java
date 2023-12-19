@@ -27,14 +27,8 @@ public class MemoryCardRepository implements CardRepository{
 
     @Override
     public Card save(Card card) {
-        card.setId(cards.size() + 1);
         cards.add(card);
 
-        return card;
-    }
-
-    @Override
-    public Card delete(Card card) {
         return card;
     }
 }

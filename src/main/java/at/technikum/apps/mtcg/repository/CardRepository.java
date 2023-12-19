@@ -13,5 +13,4 @@ public interface CardRepository {
 
     Card save(Card card);
 
-    Card delete(Card card);
 }

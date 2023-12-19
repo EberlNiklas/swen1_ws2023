@@ -1,11 +1,13 @@
 package at.technikum.apps.mtcg.service;
 
 import at.technikum.apps.mtcg.entity.Card;
+import at.technikum.apps.mtcg.repository.DatabaseCardRepository;
 import at.technikum.apps.mtcg.repository.MemoryCardRepository;
 import at.technikum.apps.mtcg.repository.CardRepository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 //Service that shows cards of a user
 public class CardService {
@@ -13,7 +15,7 @@ public class CardService {
     private final CardRepository cardRepository;
 
     public CardService() {
-        this.cardRepository = new MemoryCardRepository();
+        this.cardRepository = new DatabaseCardRepository();
     }
 
     public List<Card> findAll() {
@@ -24,16 +26,9 @@ public class CardService {
         return Optional.empty();
     }
 
-    public Card save(Card task) {
-        return cardRepository.save(task);
-    }
-
-    public Card update(int updateId, Card updatedCard) {
-        return null;
-    }
-
-    public Card delete(Card card) {
-        return null;
+    public Card save(Card card) {
+        card.setId(UUID.randomUUID().toString());
+        return cardRepository.save(card);
     }
 
 
