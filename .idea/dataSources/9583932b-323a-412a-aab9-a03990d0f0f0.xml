@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>766</IntrospectionStateNumber>
+      <IntrospectionStateNumber>821</IntrospectionStateNumber>
       <ServerVersion>16.1</ServerVersion>
-      <StartupTime>1701352421</StartupTime>
+      <StartupTime>1704301417</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1388,7 +1388,21 @@ false posix/Zulu
 false posixrules
 </TimeZones>
     </root>
-    <database id="2" parent="1" name="postgres">
+    <database id="2" parent="1" name="mtcgdb">
+      <Grants>11||10|C|G
+11||-9223372036854775808|U|G
+11||10|U|G
+2200||6171|C|G
+2200||-9223372036854775808|U|G
+2200||6171|U|G
+13212||10|C|G
+13212||-9223372036854775808|U|G
+13212||10|U|G</Grants>
+      <IntrospectionStateNumber>821</IntrospectionStateNumber>
+      <ObjectId>16389</ObjectId>
+      <OwnerName>postgres</OwnerName>
+    </database>
+    <database id="3" parent="1" name="postgres">
       <Comment>default administrative connection database</Comment>
       <Current>1</Current>
       <Grants>11||10|C|G
@@ -1400,68 +1414,54 @@ false posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>763</IntrospectionStateNumber>
+      <IntrospectionStateNumber>820</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
-    <database id="3" parent="1" name="mtcgdb">
-      <Grants>11||10|C|G
-11||-9223372036854775808|U|G
-11||10|U|G
-2200||6171|C|G
-2200||-9223372036854775808|U|G
-2200||6171|U|G
-13212||10|C|G
-13212||-9223372036854775808|U|G
-13212||10|U|G</Grants>
-      <IntrospectionStateNumber>766</IntrospectionStateNumber>
-      <ObjectId>16389</ObjectId>
-      <OwnerName>postgres</OwnerName>
-    </database>
-    <role id="4" parent="1" name="pg_database_owner">
+    <role id="4" parent="1" name="pg_checkpoint">
+      <ObjectId>4544</ObjectId>
+    </role>
+    <role id="5" parent="1" name="pg_create_subscription">
+      <ObjectId>6304</ObjectId>
+    </role>
+    <role id="6" parent="1" name="pg_database_owner">
       <ObjectId>6171</ObjectId>
     </role>
-    <role id="5" parent="1" name="pg_read_all_data">
-      <ObjectId>6181</ObjectId>
+    <role id="7" parent="1" name="pg_execute_server_program">
+      <ObjectId>4571</ObjectId>
     </role>
-    <role id="6" parent="1" name="pg_write_all_data">
-      <ObjectId>6182</ObjectId>
-    </role>
-    <role id="7" parent="1" name="pg_monitor">
+    <role id="8" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
       <RoleGrants>3374
 3375
 3377</RoleGrants>
     </role>
-    <role id="8" parent="1" name="pg_read_all_settings">
+    <role id="9" parent="1" name="pg_read_all_data">
+      <ObjectId>6181</ObjectId>
+    </role>
+    <role id="10" parent="1" name="pg_read_all_settings">
       <ObjectId>3374</ObjectId>
     </role>
-    <role id="9" parent="1" name="pg_read_all_stats">
+    <role id="11" parent="1" name="pg_read_all_stats">
       <ObjectId>3375</ObjectId>
     </role>
-    <role id="10" parent="1" name="pg_stat_scan_tables">
-      <ObjectId>3377</ObjectId>
-    </role>
-    <role id="11" parent="1" name="pg_read_server_files">
+    <role id="12" parent="1" name="pg_read_server_files">
       <ObjectId>4569</ObjectId>
     </role>
-    <role id="12" parent="1" name="pg_write_server_files">
-      <ObjectId>4570</ObjectId>
-    </role>
-    <role id="13" parent="1" name="pg_execute_server_program">
-      <ObjectId>4571</ObjectId>
-    </role>
-    <role id="14" parent="1" name="pg_signal_backend">
+    <role id="13" parent="1" name="pg_signal_backend">
       <ObjectId>4200</ObjectId>
     </role>
-    <role id="15" parent="1" name="pg_checkpoint">
-      <ObjectId>4544</ObjectId>
+    <role id="14" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
     </role>
-    <role id="16" parent="1" name="pg_use_reserved_connections">
+    <role id="15" parent="1" name="pg_use_reserved_connections">
       <ObjectId>4550</ObjectId>
     </role>
-    <role id="17" parent="1" name="pg_create_subscription">
-      <ObjectId>6304</ObjectId>
+    <role id="16" parent="1" name="pg_write_all_data">
+      <ObjectId>6182</ObjectId>
+    </role>
+    <role id="17" parent="1" name="pg_write_server_files">
+      <ObjectId>4570</ObjectId>
     </role>
     <role id="18" parent="1" name="postgres">
       <BypassRls>1</BypassRls>
@@ -4833,9 +4833,9 @@ false posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>763</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2023-11-30.15:30:03.593</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-11-30.14:30:04</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>821</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2024-01-03.19:34:58.416</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-01-03.18:34:58</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -8191,46 +8191,52 @@ false posixrules
     <schema id="508" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>766</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2023-11-30.15:40:13.774</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-11-30.14:40:14</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>820</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2024-01-03.19:33:59.548</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-01-03.18:34:00</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <table id="509" parent="508" name="card">
+    <table id="509" parent="264" name="card">
       <ObjectId>16390</ObjectId>
       <StateNumber>761</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="510" parent="509" name="id">
+    <table id="510" parent="264" name="users">
+      <ObjectId>16419</ObjectId>
+      <StateNumber>818</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="511" parent="509" name="id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>761</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="511" parent="509" name="name">
+    <column id="512" parent="509" name="name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>761</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="512" parent="509" name="description">
+    <column id="513" parent="509" name="description">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
       <StateNumber>761</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="513" parent="509" name="done">
+    <column id="514" parent="509" name="done">
       <DasType>boolean|0s</DasType>
       <Position>4</Position>
       <StateNumber>761</StateNumber>
       <TypeId>16</TypeId>
     </column>
-    <index id="514" parent="509" name="card_pkey">
+    <index id="515" parent="509" name="card_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16395</ObjectId>
@@ -8242,12 +8248,89 @@ false posixrules
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="515" parent="509" name="card_pkey">
+    <key id="516" parent="509" name="card_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16396</ObjectId>
       <Primary>1</Primary>
       <StateNumber>761</StateNumber>
       <UnderlyingIndexId>16395</UnderlyingIndexId>
+    </key>
+    <column id="517" parent="510" name="id">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>818</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="518" parent="510" name="username">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>818</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="519" parent="510" name="password">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>818</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="520" parent="510" name="points">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>100</DefaultExpression>
+      <Position>4</Position>
+      <StateNumber>818</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="521" parent="510" name="coins">
+      <DasType>integer|0s</DasType>
+      <DefaultExpression>20</DefaultExpression>
+      <Position>5</Position>
+      <StateNumber>818</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="522" parent="510" name="deck_id">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>6</Position>
+      <StateNumber>818</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="523" parent="510" name="users_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16426</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>818</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <index id="524" parent="510" name="users_username_key">
+      <ColNames>username</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16428</ObjectId>
+      <StateNumber>818</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="525" parent="510" name="users_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16427</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>818</StateNumber>
+      <UnderlyingIndexId>16426</UnderlyingIndexId>
+    </key>
+    <key id="526" parent="510" name="users_username_key">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16429</ObjectId>
+      <StateNumber>818</StateNumber>
+      <UnderlyingIndexId>16428</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

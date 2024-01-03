@@ -17,9 +17,11 @@ public interface UserRepository {
 
     int findStats(String username);
 
-    List<Integer> sortedEloList();
+    List<Integer> sortedPointsList();
 
     User findByUsername(String username);
+
+    String findUserString(String username);
 
     User save(User user);
 

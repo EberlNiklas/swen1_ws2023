@@ -30,15 +30,9 @@ public class UserService {
         return userRepository.update(updatedUser, username);
     }
 
-    public User register(User user){
-        String userUsername = user.getUsername();
-        User checkUsername = userRepository.findByUsername(userUsername);
-
-        if(checkUsername == null){
-            user.setId(UUID.randomUUID().toString());
-            return userRepository.save(user);
-        }
-        return null;
+    public User registration(User user){
+        user.setId(UUID.randomUUID().toString());
+        return userRepository.save(user);
     }
 
     public Optional<User> login(String username, String password){
@@ -54,8 +48,12 @@ public class UserService {
         return userRepository.findStats(username);
     }
 
-    public List<Integer> sortedEloList(){
-        return userRepository.sortedEloList();
+    public List<Integer> sortedPointsList(){
+        return userRepository.sortedPointsList();
+    }
+
+    public String findUserString(String username){
+        return userRepository.findUserString(username);
     }
 
 

@@ -15,18 +15,15 @@ import java.util.Optional;
 public class DatabaseUserRepository implements UserRepository{
     //TODO
 
-    private final String FIND_BY_USERNAME = "SELECT * FROM player WHERE username = ?";
-    private final String FIND_BY_USERNAME_AND_PASSWORD = "SELECT * FROM player WHERE username = ? AND password = ?";
-    private final String SAVE_SQL = "INSERT INTO player(user_id, username, password, elo, coins, deck_id, bio, image, name) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private final String UPDATE_SQL = "UPDATE player SET bio = ?, image = ?, name = ? WHERE username = ?";
-    private final String GET_ELO_SQL = "SELECT elo FROM player WHERE username = ?";
-    private final String GET_ALL_ELO_SQL = "SELECT elo FROM player";
-    private final String CHECK_TOKEN_SQL = "SELECT username FROM player WHERE username = ?";
-    private final Database database;
+    private final String FIND_BY_USERNAME = "SELECT username FROM users WHERE username = ?";
+    private final String FIND_BY_USERNAME_AND_PASSWORD = "SELECT * FROM users WHERE username = ? AND password = ?";
+    private final String SAVE = "INSERT INTO users(id, username, password, points, coins, deck_id) VALUES(?, ?, ?, ?, ?, ?)";
+    private final String UPDATE = "UPDATE users SET bio = ?, image = ?, name = ? WHERE username = ?";
+    private final String GET_POINTS_SQL = "SELECT points FROM users WHERE username = ?";
+    private final String GET_ALL_POINTS_SQL = "SELECT points FROM users";
+    private final String TOKEN_SQL = "SELECT username FROM users WHERE username = ?";
+    private final Database database = new Database();
 
-    public DatabaseUserRepository(Database database) {
-        this.database = database;
-    }
 
     @Override
     public boolean isValid(String username){
@@ -34,7 +31,7 @@ public class DatabaseUserRepository implements UserRepository{
 
         try(
                 Connection con = database.getConnection();
-                PreparedStatement pstmt = con.prepareStatement(CHECK_TOKEN_SQL);
+                PreparedStatement pstmt = con.prepareStatement(TOKEN_SQL);
                 ){
             pstmt.setString(1, username);
 
@@ -66,7 +63,7 @@ public class DatabaseUserRepository implements UserRepository{
                         rs.getString("user_id"),
                         rs.getString("username"),
                         rs.getString("password"),
-                        rs.getInt("elo"),
+                        rs.getInt("points"),
                         rs.getInt("coins"),
                         rs.getString("deck_id"),
                         rs.getString("bio"),
@@ -77,6 +74,25 @@ public class DatabaseUserRepository implements UserRepository{
               }catch (SQLException e){
                 System.err.println("SQL Exception! Message: " + e.getMessage());
           }
+        return user;
+    }
+
+    public String findUserString(String username) {
+        String user = null;
+
+        try(
+                Connection con = database.getConnection();
+                PreparedStatement pstmt = con.prepareStatement(FIND_BY_USERNAME);
+        ){
+            pstmt.setString(1, username);
+            try (ResultSet rs = pstmt.executeQuery()){
+                if(rs.next()){
+                    user = rs.getString("username");
+                }
+            }
+        }catch (SQLException e){
+            System.err.println("SQL Exception! Message: " + e.getMessage());
+        }
         return user;
     }
 
@@ -97,7 +113,7 @@ public class DatabaseUserRepository implements UserRepository{
                             rs.getString("user_id"),
                             rs.getString("username"),
                             rs.getString("password"),
-                            rs.getInt("elo"),
+                            rs.getInt("points"),
                             rs.getInt("coins"),
                             rs.getString("deck_id"),
                             rs.getString("bio"),
@@ -112,33 +128,31 @@ public class DatabaseUserRepository implements UserRepository{
     }
 
     @Override
-    public User save(User player) {
+    public User save(User user) {
         try (
                 Connection con = database.getConnection();
-                PreparedStatement pstmt = con.prepareStatement(SAVE_SQL)
+                PreparedStatement pstmt = con.prepareStatement(SAVE)
         ) {
-            pstmt.setString(1, player.getId());
-            pstmt.setString(2, player.getUsername());
-            pstmt.setString(3, player.getPassword());
+            pstmt.setString(1, user.getId());
+            pstmt.setString(2, user.getUsername());
+            pstmt.setString(3, user.getPassword());
             pstmt.setInt(4, 100);
             pstmt.setInt(5, 20);
-            pstmt.setString(6, player.getDeckID());
-            pstmt.setString(7, player.getBio());
-            pstmt.setString(8, player.getImage());
-            pstmt.setString(9, player.getName());
+            pstmt.setString(6, user.getDeckID());
+
 
             pstmt.execute();
         } catch (SQLException e) {
-            System.err.println("SQL exception occurred: " + e.getMessage());
+            System.err.println("SQL Exception! Message: " + e.getMessage());
         }
 
-        return player;
+        return user;
     }
     @Override
     public User update(User user, String username) {
         try (
                 Connection con = database.getConnection();
-                PreparedStatement pstmt = con.prepareStatement(UPDATE_SQL)
+                PreparedStatement pstmt = con.prepareStatement(UPDATE)
         ) {
             pstmt.setString(1, user.getBio());
             pstmt.setString(2, user.getImage());
@@ -159,12 +173,12 @@ public class DatabaseUserRepository implements UserRepository{
         int stats = 0;
         try (
                 Connection con = database.getConnection();
-                PreparedStatement pstmt = con.prepareStatement(GET_ELO_SQL)
+                PreparedStatement pstmt = con.prepareStatement(GET_POINTS_SQL)
         ) {
             pstmt.setString(1, username);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if(rs.next()) {
-                    stats = rs.getInt("elo");
+                    stats = rs.getInt("points");
                 }
             }
         } catch (SQLException e) {
@@ -173,15 +187,15 @@ public class DatabaseUserRepository implements UserRepository{
         return stats;
     }
 
-    public List<Integer> sortedEloList() {
+    public List<Integer> sortedPointsList() {
         List<Integer> list = new ArrayList<>();
         try (
                 Connection con = database.getConnection();
-                PreparedStatement pstmt = con.prepareStatement(GET_ALL_ELO_SQL);
+                PreparedStatement pstmt = con.prepareStatement(GET_ALL_POINTS_SQL);
                 ResultSet rs = pstmt.executeQuery()
         ) {
             while (rs.next()) {
-                int elo = rs.getInt("elo");
+                int elo = rs.getInt("points");
                 list.add(elo);
             }
         } catch (SQLException e) {

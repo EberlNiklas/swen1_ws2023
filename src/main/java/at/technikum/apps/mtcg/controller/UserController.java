@@ -2,6 +2,7 @@ package at.technikum.apps.mtcg.controller;
 
 import at.technikum.apps.mtcg.entity.Card;
 import at.technikum.apps.mtcg.entity.User;
+import at.technikum.apps.mtcg.repository.DatabaseUserRepository;
 import at.technikum.apps.mtcg.service.CardService;
 import at.technikum.apps.mtcg.service.UserService;
 import at.technikum.server.http.ContentType;
@@ -11,7 +12,7 @@ import at.technikum.server.http.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import jdk.incubator.vector.VectorOperators;
+
 
 import java.util.Optional;
 
@@ -19,11 +20,9 @@ public class UserController extends AbstractController {
 
     private final UserService userService;
 
-    private final ObjectMapper objectMapper;
 
-    public UserController(UserService userService) {
-        this.userService = userService;
-        this.objectMapper = new ObjectMapper();
+    public UserController() {
+        this.userService = new UserService(new DatabaseUserRepository());
     }
 
     @Override
@@ -62,6 +61,7 @@ public class UserController extends AbstractController {
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
         User user;
         try {
             user = objectMapper.readValue(request.getBody(), User.class);
@@ -69,7 +69,11 @@ public class UserController extends AbstractController {
             return badRequest(HttpStatus.BAD_REQUEST);
         }
 
-        user = userService.register(user);
+        String checkIfExists = userService.findUserString(user.getUsername());
+        if(checkIfExists != null){
+            return badRequest(HttpStatus.BAD_REQUEST);
+        }
+        user = userService.registration(user);
 
         if(user == null) {
             return notFound(HttpStatus.NOT_FOUND);

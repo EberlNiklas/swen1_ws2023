@@ -8,7 +8,7 @@ public class User {
 
     private String password;
 
-    private int elo;
+    private int points;
 
     private int coins;
 
@@ -25,11 +25,11 @@ public class User {
 
     }
 
-    public User(String id, String username, String password, int elo, int coins, String deckID, String bio, String image, String name) {
+    public User(String id, String username, String password, int points, int coins, String deckID, String bio, String image, String name) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.elo = elo;
+        this.points = points;
         this.coins = coins;
         this.deckID = deckID;
         this.bio = bio;
@@ -61,12 +61,12 @@ public class User {
         this.password = password;
     }
 
-    public int getElo() {
-        return elo;
+    public int getPoints() {
+        return points;
     }
 
-    public void setElo(int elo) {
-        this.elo = elo;
+    public void setPoints(int points) {
+        this.points = points;
     }
 
     public int getCoins() {
