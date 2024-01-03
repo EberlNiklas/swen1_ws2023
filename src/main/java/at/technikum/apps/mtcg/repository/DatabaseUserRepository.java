@@ -1,5 +1,6 @@
 package at.technikum.apps.mtcg.repository;
 
+import at.technikum.apps.mtcg.data.Database;
 import at.technikum.apps.mtcg.entity.User;
 
 import java.util.List;
@@ -9,16 +10,14 @@ import java.util.Optional;
 public class DatabaseUserRepository implements UserRepository{
     //TODO
 
-    public DatabaseUserRepository() {
+    private final Database database;
+
+    public DatabaseUserRepository(Database database) {
+        this.database = database;
     }
 
     @Override
     public User findByUsername(String username) {
-        return null;
-    }
-
-    @Override
-    public List<User> findAll() {
         return null;
     }
 
@@ -32,8 +31,4 @@ public class DatabaseUserRepository implements UserRepository{
         return null;
     }
 
-    @Override
-    public User delete(User user) {
-        return null;
-    }
 }

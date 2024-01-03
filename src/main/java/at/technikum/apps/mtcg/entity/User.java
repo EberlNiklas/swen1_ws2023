@@ -8,14 +8,33 @@ public class User {
 
     private String password;
 
+    private int elo;
+
+    private int coins;
+
+    private String deckID;
+
+    private String bio;
+
+    private String image;
+
+    private String name;
+
+
     public User(){
 
     }
 
-    public User(String id, String username, String password) {
+    public User(String id, String username, String password, int elo, int coins, String deckID, String bio, String image, String name) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.elo = elo;
+        this.coins = coins;
+        this.deckID = deckID;
+        this.bio = bio;
+        this.image = image;
+        this.name = name;
     }
 
     public String getId() {
@@ -40,5 +59,53 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getElo() {
+        return elo;
+    }
+
+    public void setElo(int elo) {
+        this.elo = elo;
+    }
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public void setCoins(int coins) {
+        this.coins = coins;
+    }
+
+    public String getDeckID() {
+        return deckID;
+    }
+
+    public void setDeckID(String deckID) {
+        this.deckID = deckID;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

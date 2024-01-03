@@ -8,7 +8,6 @@ import java.util.Optional;
 
 public interface UserRepository {
 
-    List<User> findAll();
 
     Optional<User> find(int id);
 
@@ -16,6 +15,5 @@ public interface UserRepository {
 
     User save(User user);
 
-    User delete(User user);
 
 }
