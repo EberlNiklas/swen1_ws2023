@@ -9,6 +9,7 @@ import at.technikum.server.http.HttpStatus;
 import at.technikum.server.http.Request;
 import at.technikum.server.http.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jdk.incubator.vector.VectorOperators;
 
@@ -37,16 +38,19 @@ public class UserController extends AbstractController {
             if(request.getMethod().equals("POST")){
                 return create(request);
             }
+
+            String[] routeParts = request.getRoute().split("/");
+            String user = routeParts[2];
+
             switch (request.getMethod()) {
                 case "GET":
-                    return createWhenGET(request);
-                case "POST":
-                    return createWhenPOST(request.getBody());
+                    return readAll(request, user);
+                case "PUT":
+                    return update(request, user);
             }
-
+            return notAllowed(HttpStatus.NOT_ALLOWED);
         }
-            // THOUGHT: better 405
-            return status(HttpStatus.BAD_REQUEST);
+         return notAllowed(HttpStatus.NOT_ALLOWED);
 
     }
 
@@ -81,4 +85,64 @@ public class UserController extends AbstractController {
         return json(HttpStatus.CREATED, userJson);
     }
 
+    public Response readAll(Request request, String user){
+        String token =request.getHttpHeader();
+        String username = extractUsernameFromHeader(token);
+
+        if(!user.equals(username)){
+            return badRequest(HttpStatus.BAD_REQUEST);
+        }
+
+        if(!userService.isValid(username)){
+            return notAllowed(HttpStatus.NOT_ALLOWED);
+        }
+
+        User userFound = userService.findByUsername(username);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String userJson;
+        try{
+            userJson = objectMapper.writeValueAsString(userFound);
+        }catch (JsonProcessingException e){
+            return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    public Response update(Request request, String user){
+        if(!request.getContentType().equals("application/json")){
+            return badRequest(HttpStatus.BAD_REQUEST);
+        }
+
+        String token = request.getHttpHeader();
+        String username = extractUsernameFromHeader(token);
+
+        if(!user.equals(username)){
+            return badRequest(HttpStatus.BAD_REQUEST);
+        }
+
+        if(!userService.isValid(username)){
+            return notAllowed(HttpStatus.NOT_ALLOWED);
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+
+        objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
+        User updatedUser;
+        try{
+            updatedUser = objectMapper.readValue(request.getBody(), User.class);
+        }catch (JsonProcessingException e){
+            return badRequest(HttpStatus.BAD_REQUEST);
+        }
+
+        User player = userService.update(updatedUser, username);
+        String userJson;
+
+        try{
+            userJson = objectMapper.writeValueAsString(player);
+        }catch (JsonProcessingException e){
+            return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return json(HttpStatus.OK, userJson);
+    }
 }

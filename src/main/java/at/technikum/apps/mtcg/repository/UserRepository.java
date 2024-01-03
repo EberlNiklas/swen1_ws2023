@@ -9,7 +9,15 @@ import java.util.Optional;
 public interface UserRepository {
 
 
-    Optional<User> find(int id);
+    boolean isValid(String username);
+
+    Optional<User> login(String username, String password);
+
+    User update(User user, String username);
+
+    int findStats(String username);
+
+    List<Integer> sortedEloList();
 
     User findByUsername(String username);
 

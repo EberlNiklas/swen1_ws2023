@@ -19,6 +19,8 @@ public class Request {
     // none, "{ "name": "foo" }"
     private String body;
 
+    private String httpHeader;
+
     public String getMethod() {
         return method;
     }
@@ -65,5 +67,13 @@ public class Request {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getHttpHeader() {
+        return httpHeader;
+    }
+
+    public void setHttpHeader(String httpHeader) {
+        this.httpHeader = httpHeader;
     }
 }

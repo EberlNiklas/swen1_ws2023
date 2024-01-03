@@ -19,6 +19,8 @@ public class HttpMapper {
         request.setMethod(HttpMethod.getHttpMethod(httpRequest));
         request.setRoute(getRoute(httpRequest));
         request.setHost(getHttpHeader("Host", httpRequest));
+        request.setContentType(HttpMapper.getHttpHeader("Content-Type", httpRequest));
+        request.setHttpHeader(HttpMapper.getHttpHeader("Authorization", httpRequest));
 
 
         // THOUGHT: don't do the content parsing in this method
