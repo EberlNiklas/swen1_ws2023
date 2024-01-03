@@ -10,6 +10,7 @@ import at.technikum.server.http.Request;
 import at.technikum.server.http.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jdk.incubator.vector.VectorOperators;
 
 import java.util.Optional;
 
@@ -50,26 +51,34 @@ public class UserController extends AbstractController {
     }
 
 
-        public Response createWhenGET(String route) {
-
-          Response response = new Response();
-
-          try{
-              if(supports(route)){
-                  String username = route.substring(route.lastIndexOf("/") + 1);
-                  User user = userService.findByUsername(username);
-
-
-
-              }
-          }
-
-            return response;
-
-            // return json(task);
-        }
-
     public Response create(Request request) {
 
+        if (!request.getContentType().equals("application/json")) {
+            return badRequest(HttpStatus.BAD_REQUEST);
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        User user;
+        try {
+            user = objectMapper.readValue(request.getBody(), User.class);
+        } catch (JsonProcessingException e) {
+            return badRequest(HttpStatus.BAD_REQUEST);
+        }
+
+        user = userService.register(user);
+
+        if(user == null) {
+            return notFound(HttpStatus.NOT_FOUND);
+        }
+
+        String userJson;
+        try {
+            userJson = objectMapper.writeValueAsString(user);
+        } catch (JsonProcessingException e) {
+            return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        return json(HttpStatus.CREATED, userJson);
+    }
 
 }
