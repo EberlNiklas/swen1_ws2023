@@ -67,15 +67,6 @@ public abstract class AbstractController {
         return response;
     }
 
-    protected Response internalServerError(HttpStatus httpStatus) {
-        Response response = new Response();
-        response.setStatus(httpStatus);
-        response.setContentType(ContentType.APPLICATION_JSON);
-        response.setBody("{ \"Bad Request\": \""+ HttpStatus.INTERNAL_SERVER_ERROR + "\"}");
-
-        return response;
-    }
-
     protected Response accepted(HttpStatus httpStatus) {
         Response response = new Response();
         response.setStatus(httpStatus);
@@ -112,6 +103,12 @@ public abstract class AbstractController {
         return response;
     }
 
-    // THOUGHT: more functionality e.g. ok(), json(), etc
+    protected Response internalServerError(HttpStatus httpStatus) {
+        Response response = new Response();
+        response.setStatus(httpStatus);
+        response.setContentType(ContentType.APPLICATION_JSON);
+        response.setBody("{ \"Bad Request\": \""+ HttpStatus.INTERNAL_SERVER_ERROR + "\"}");
 
+        return response;
+    }
 }
