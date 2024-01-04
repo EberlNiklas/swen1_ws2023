@@ -91,7 +91,7 @@ public class UserController extends AbstractController {
 
     public Response readAll(Request request, String user){
         String token =request.getHttpHeader();
-        String username = extractUsernameFromHeader(token);
+        String username = extractUsername(token);
 
         if(!user.equals(username)){
             return badRequest(HttpStatus.BAD_REQUEST);
@@ -119,7 +119,7 @@ public class UserController extends AbstractController {
         }
 
         String token = request.getHttpHeader();
-        String username = extractUsernameFromHeader(token);
+        String username = extractUsername(token);
 
         if(!user.equals(username)){
             return badRequest(HttpStatus.BAD_REQUEST);

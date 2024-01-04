@@ -20,7 +20,7 @@ public abstract class AbstractController {
         return response;
     }
 
-    protected String extractUsernameFromHeader(String header) {
+    protected String extractUsername(String header) {
         String[] parts = header.split(" ");
         if (parts.length == 2 && parts[0].equals("Bearer")) {
             String[] subParts = parts[1].split("-");
