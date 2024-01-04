@@ -37,6 +37,14 @@ public class User {
         this.name = name;
     }
 
+    public User(String id, String username, String password, int points, int coins, String deckID) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.points = points;
+        this.coins = coins;
+        this.deckID = deckID;
+    }
     public String getId() {
         return id;
     }

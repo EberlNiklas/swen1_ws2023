@@ -110,15 +110,12 @@ public class DatabaseUserRepository implements UserRepository{
             try (ResultSet rs = pstmt.executeQuery()) {
                 if(rs.next()) {
                     user = new User(
-                            rs.getString("user_id"),
+                            rs.getString("id"),
                             rs.getString("username"),
                             rs.getString("password"),
                             rs.getInt("points"),
                             rs.getInt("coins"),
-                            rs.getString("deck_id"),
-                            rs.getString("bio"),
-                            rs.getString("image"),
-                            rs.getString("name"));
+                            rs.getString("deck_id"));
                 }
             }
         }catch (SQLException e) {

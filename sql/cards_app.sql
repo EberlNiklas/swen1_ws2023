@@ -19,5 +19,6 @@ CREATE TABLE IF NOT EXISTS users (
     );
 
 
+DROP TABLE users
 
 

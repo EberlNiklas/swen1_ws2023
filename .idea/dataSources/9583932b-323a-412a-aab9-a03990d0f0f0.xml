@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>821</IntrospectionStateNumber>
+      <IntrospectionStateNumber>871</IntrospectionStateNumber>
       <ServerVersion>16.1</ServerVersion>
-      <StartupTime>1704301417</StartupTime>
+      <StartupTime>1704377298</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1398,7 +1398,7 @@ false posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>821</IntrospectionStateNumber>
+      <IntrospectionStateNumber>844</IntrospectionStateNumber>
       <ObjectId>16389</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -1414,7 +1414,7 @@ false posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>820</IntrospectionStateNumber>
+      <IntrospectionStateNumber>871</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4833,9 +4833,9 @@ false posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>821</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2024-01-03.19:34:58.416</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-01-03.18:34:58</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>844</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2024-01-04.15:33:58.596</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-01-04.14:33:59</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -8191,22 +8191,22 @@ false posixrules
     <schema id="508" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>820</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2024-01-03.19:33:59.548</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-01-03.18:34:00</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>871</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2024-01-04.15:45:47.446</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-01-04.14:45:48</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <table id="509" parent="264" name="card">
-      <ObjectId>16390</ObjectId>
-      <StateNumber>761</StateNumber>
+      <ObjectId>24589</ObjectId>
+      <StateNumber>830</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="510" parent="264" name="users">
-      <ObjectId>16419</ObjectId>
-      <StateNumber>818</StateNumber>
+      <ObjectId>24607</ObjectId>
+      <StateNumber>841</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -8214,34 +8214,34 @@ false posixrules
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>761</StateNumber>
+      <StateNumber>830</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="512" parent="509" name="name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>761</StateNumber>
+      <StateNumber>830</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="513" parent="509" name="description">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>761</StateNumber>
+      <StateNumber>830</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="514" parent="509" name="done">
       <DasType>boolean|0s</DasType>
       <Position>4</Position>
-      <StateNumber>761</StateNumber>
+      <StateNumber>830</StateNumber>
       <TypeId>16</TypeId>
     </column>
     <index id="515" parent="509" name="card_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16395</ObjectId>
+      <ObjectId>24594</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>761</StateNumber>
+      <StateNumber>830</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -8250,58 +8250,58 @@ false posixrules
     </index>
     <key id="516" parent="509" name="card_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16396</ObjectId>
+      <ObjectId>24595</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>761</StateNumber>
-      <UnderlyingIndexId>16395</UnderlyingIndexId>
+      <StateNumber>830</StateNumber>
+      <UnderlyingIndexId>24594</UnderlyingIndexId>
     </key>
     <column id="517" parent="510" name="id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>818</StateNumber>
+      <StateNumber>841</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="518" parent="510" name="username">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>818</StateNumber>
+      <StateNumber>841</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="519" parent="510" name="password">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>818</StateNumber>
+      <StateNumber>841</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="520" parent="510" name="points">
       <DasType>integer|0s</DasType>
       <DefaultExpression>100</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>818</StateNumber>
+      <StateNumber>841</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="521" parent="510" name="coins">
       <DasType>integer|0s</DasType>
       <DefaultExpression>20</DefaultExpression>
       <Position>5</Position>
-      <StateNumber>818</StateNumber>
+      <StateNumber>841</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="522" parent="510" name="deck_id">
       <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
-      <StateNumber>818</StateNumber>
+      <StateNumber>841</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <index id="523" parent="510" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16426</ObjectId>
+      <ObjectId>24614</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>818</StateNumber>
+      <StateNumber>841</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -8311,8 +8311,8 @@ false posixrules
     <index id="524" parent="510" name="users_username_key">
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16428</ObjectId>
-      <StateNumber>818</StateNumber>
+      <ObjectId>24616</ObjectId>
+      <StateNumber>841</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -8321,16 +8321,16 @@ false posixrules
     </index>
     <key id="525" parent="510" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16427</ObjectId>
+      <ObjectId>24615</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>818</StateNumber>
-      <UnderlyingIndexId>16426</UnderlyingIndexId>
+      <StateNumber>841</StateNumber>
+      <UnderlyingIndexId>24614</UnderlyingIndexId>
     </key>
     <key id="526" parent="510" name="users_username_key">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16429</ObjectId>
-      <StateNumber>818</StateNumber>
-      <UnderlyingIndexId>16428</UnderlyingIndexId>
+      <ObjectId>24617</ObjectId>
+      <StateNumber>841</StateNumber>
+      <UnderlyingIndexId>24616</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>
