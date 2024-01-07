@@ -20,15 +20,13 @@ public abstract class AbstractController {
         return response;
     }
 
-    protected String extractUsername(String header) {
-        String[] parts = header.split(" ");
-        if (parts.length == 2 && parts[0].equals("Bearer")) {
-            String[] subParts = parts[1].split("-");
-            if (subParts.length == 2) {
-                return subParts[0];
-            }
-        }
-        return null;
+    protected Response created(HttpStatus httpStatus) {
+        Response response = new Response();
+        response.setStatus(httpStatus);
+        response.setContentType(ContentType.APPLICATION_JSON);
+        response.setBody("{ \"Created\": \""+ HttpStatus.CREATED + "\"}");
+
+        return response;
     }
 
     protected Response ok(HttpStatus httpStatus) {
@@ -45,15 +43,6 @@ public abstract class AbstractController {
         response.setStatus(httpStatus);
         response.setContentType(ContentType.APPLICATION_JSON);
         response.setBody("{ \"Not Allowed\": \""+ HttpStatus.NOT_ALLOWED + "\"}");
-
-        return response;
-    }
-
-    protected Response created(HttpStatus httpStatus) {
-        Response response = new Response();
-        response.setStatus(httpStatus);
-        response.setContentType(ContentType.APPLICATION_JSON);
-        response.setBody("{ \"Created\": \""+ HttpStatus.CREATED + "\"}");
 
         return response;
     }
@@ -76,20 +65,20 @@ public abstract class AbstractController {
         return response;
     }
 
-    protected Response unauthorized(HttpStatus httpStatus) {
-        Response response = new Response();
-        response.setStatus(httpStatus);
-        response.setContentType(ContentType.APPLICATION_JSON);
-        response.setBody("{ \"Accepted\": \""+ HttpStatus.UNAUTHORIZED + "\"}");
-
-        return response;
-    }
-
     protected Response notFound(HttpStatus httpStatus) {
         Response response = new Response();
         response.setStatus(httpStatus);
         response.setContentType(ContentType.APPLICATION_JSON);
         response.setBody("{ \"Not Found\": \""+ HttpStatus.NOT_FOUND + "\"}");
+
+        return response;
+    }
+
+    protected Response unauthorized(HttpStatus httpStatus) {
+        Response response = new Response();
+        response.setStatus(httpStatus);
+        response.setContentType(ContentType.APPLICATION_JSON);
+        response.setBody("{ \"Accepted\": \""+ HttpStatus.UNAUTHORIZED + "\"}");
 
         return response;
     }
@@ -110,5 +99,16 @@ public abstract class AbstractController {
         response.setBody("{ \"Bad Request\": \""+ HttpStatus.INTERNAL_SERVER_ERROR + "\"}");
 
         return response;
+    }
+
+    protected String extractUsername(String header) {
+        String[] parts = header.split(" ");
+        if (parts.length == 2 && parts[0].equals("Bearer")) {
+            String[] subParts = parts[1].split("-");
+            if (subParts.length == 2) {
+                return subParts[0];
+            }
+        }
+        return null;
     }
 }

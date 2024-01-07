@@ -38,8 +38,8 @@ public class UserController extends AbstractController {
                 return create(request);
             }
 
-            String[] routeParts = request.getRoute().split("/");
-            String user = routeParts[2];
+            String[] route = request.getRoute().split("/");
+            String user = route[2];
 
             switch (request.getMethod()) {
                 case "GET":

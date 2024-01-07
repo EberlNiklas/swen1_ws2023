@@ -2,6 +2,7 @@ package at.technikum.apps.mtcg.controller;
 
 import at.technikum.apps.mtcg.entity.User;
 import at.technikum.apps.mtcg.repository.DatabaseUserRepository;
+import at.technikum.apps.mtcg.service.SessionService;
 import at.technikum.apps.mtcg.service.UserService;
 import at.technikum.server.http.ContentType;
 import at.technikum.server.http.HttpStatus;
@@ -16,8 +17,12 @@ public class SessionController extends AbstractController{
 
     private final UserService userService;
 
+    private final SessionService sessionService;
+
+
     public SessionController() {
         this.userService = new UserService(new DatabaseUserRepository());
+        this.sessionService = new SessionService();
     }
 
     @Override
@@ -43,18 +48,12 @@ public class SessionController extends AbstractController{
         if(request.getContentType().equals("application/json")){
             Optional<User> user = userService.login(username, password);
             if(user.isEmpty()){
-                return notFound(HttpStatus.NOT_FOUND);
+                return unauthorized(HttpStatus.UNAUTHORIZED);
             }
-            ObjectMapper objectMapper = new ObjectMapper();
-            String userJson;
-            try {
-                userJson = objectMapper.writeValueAsString(user.get());
-            }catch (JsonProcessingException e){
-                return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
-            }
-            return json(HttpStatus.ACCEPTED, userJson);
+            return json(HttpStatus.ACCEPTED, "{\"Token\":\"" + sessionService.generateToken(username) + "\"}");
         }
         return badRequest(HttpStatus.BAD_REQUEST);
     }
+
 
 }
