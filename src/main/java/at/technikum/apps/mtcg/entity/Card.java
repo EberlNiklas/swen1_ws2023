@@ -7,19 +7,24 @@ public class Card {
 
     private String name;
 
-    private String description;
+    private String damage;
 
-    private boolean done;
+    private String packageId;
 
+    //TODO Element type?
     public Card(){
 
     }
 
-    public Card(String id, String name, String description, boolean done) {
+    public Card(String id, String name, String damage) {
+        this(id,name, damage,null);
+    }
+
+    public Card(String id, String name, String damage, String packageId) {
         this.id = id;
         this.name = name;
-        this.description = description;
-        this.done = done;
+        this.damage = damage;
+        this.packageId = packageId;
     }
 
     public String getId() {
@@ -38,19 +43,19 @@ public class Card {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDamage() {
+        return damage;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDamage(String damage) {
+        this.damage = damage;
     }
 
-    public boolean isDone() {
-        return done;
+    public String getPackageId() {
+        return packageId;
     }
 
-    public void setDone(boolean done) {
-        this.done = done;
+    public void setPackageId(String packageId) {
+        this.packageId = packageId;
     }
 }

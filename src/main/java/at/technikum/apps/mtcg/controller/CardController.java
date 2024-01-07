@@ -25,15 +25,16 @@ public class CardController extends AbstractController {
 
     @Override
     public Response handle(Request request) {
-
         if (request.getRoute().equals("/cards")) {
-            switch (request.getMethod()) {
-                case "GET": return readAll(request);
-                case "POST": return create(request);
+            if (!isLoggedIn(request)) {
+                return unauthorized(HttpStatus.UNAUTHORIZED);
+            }
+            if (request.getMethod().equals("GET")) {
+                return readAll(request);
             }
 
             // THOUGHT: better 405
-            return status(HttpStatus.BAD_REQUEST);
+            return notAllowed(HttpStatus.NOT_ALLOWED);
         }
 
         // get id e.g. from /tasks/1
@@ -41,36 +42,16 @@ public class CardController extends AbstractController {
         int cardId = Integer.parseInt(routeParts[2]);
 
         switch (request.getMethod()) {
-            case "GET": return read(cardId, request);
-            case "PUT": return update(cardId, request);
-            case "DELETE": return delete(cardId, request);
+            case "GET":
+                return read(cardId, request);
+            case "PUT":
+                return update(cardId, request);
+            case "DELETE":
+                return delete(cardId, request);
         }
 
         // THOUGHT: better 405
-        return status(HttpStatus.BAD_REQUEST);
-    }
-
-    public Response create(Request request) {
-
-        ObjectMapper objectMapper = new ObjectMapper();
-        Card card = null;
-        try {
-            card = objectMapper.readValue(request.getBody(), Card.class);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-
-        // task = toObject(request.getBody(), Task.class);
-
-        card = cardService.save(card);
-
-        String cardJson = null;
-        try {
-            cardJson = objectMapper.writeValueAsString(card);
-        } catch (JsonProcessingException e) {
-            throw new RuntimeException(e);
-        }
-        return json(HttpStatus.CREATED, cardJson);
+        return notAllowed(HttpStatus.NOT_ALLOWED);
     }
 
     public Response readAll(Request request) {

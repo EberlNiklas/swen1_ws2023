@@ -2,6 +2,7 @@ package at.technikum.apps.mtcg.service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 //service that provides logic for login of a user
 public class SessionService {

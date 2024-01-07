@@ -2,12 +2,6 @@ CREATE DATABASE mctgdb;
 
 \c mctgdb;
 
-CREATE TABLE IF NOT EXISTS card (
-    id VARCHAR(255) PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    description VARCHAR(255),
-    done BOOLEAN
-    );
 
 CREATE TABLE IF NOT EXISTS users (
     id VARCHAR(255) PRIMARY KEY,
@@ -19,6 +13,25 @@ CREATE TABLE IF NOT EXISTS users (
     );
 
 
-DROP TABLE users
+
+CREATE TABLE IF NOT EXISTS packages (
+    id VARCHAR(255) PRIMARY KEY,
+    user_id VARCHAR(255) REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS card (
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    damage VARCHAR(255),
+    package_id VARCHAR(255) NOT NULL REFERENCES packages(id)
+);
+
+
+
+
+DROP TABLE card, packages, users
+
+
+
 
 

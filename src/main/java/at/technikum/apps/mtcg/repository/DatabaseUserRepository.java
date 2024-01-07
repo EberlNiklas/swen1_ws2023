@@ -22,7 +22,7 @@ public class DatabaseUserRepository implements UserRepository{
     private final String GET_POINTS_SQL = "SELECT points FROM users WHERE username = ?";
     private final String GET_ALL_POINTS_SQL = "SELECT points FROM users";
     private final String TOKEN_SQL = "SELECT username FROM users WHERE username = ?";
-    private final Database database = new Database();
+    private final Database database = Database.getInstance();
 
 
     @Override

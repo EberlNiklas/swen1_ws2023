@@ -1,5 +1,6 @@
 package at.technikum.apps.mtcg.controller;
 
+import at.technikum.apps.mtcg.service.SessionService;
 import at.technikum.server.http.ContentType;
 import at.technikum.server.http.HttpStatus;
 import at.technikum.server.http.Request;
@@ -10,6 +11,8 @@ public abstract class AbstractController {
     public abstract boolean supports(String route);
 
     public abstract Response handle(Request request);
+
+    private SessionService sessionService = new SessionService();
 
     protected Response status(HttpStatus httpStatus) {
         Response response = new Response();
@@ -110,5 +113,23 @@ public abstract class AbstractController {
             }
         }
         return null;
+    }
+
+    protected String extractToken(String header){
+        if (header == null){
+            return null;
+        }
+        String[] sections = header.split(" ");
+        if (sections.length == 2 && sections[0].equals("Bearer")){
+            return sections[1];
+        }
+        return null;
+    }
+
+    protected boolean isLoggedIn(Request request){
+        return sessionService.isLoggedIn(extractToken(request.getHttpHeader()));
+    }
+    protected boolean isLoggedInAsAdmin(Request request){
+        return sessionService.isLoggedInAsAdmin(extractToken(request.getHttpHeader()));
     }
 }

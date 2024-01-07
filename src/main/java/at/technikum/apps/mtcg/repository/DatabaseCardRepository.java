@@ -14,9 +14,10 @@ import java.util.Optional;
 public class DatabaseCardRepository implements CardRepository {
 
     private final String FIND_ALL_SQL = "SELECT * FROM card";
-    private final String SAVE_SQL = "INSERT INTO card(id, name, description, done) VALUES(?, ?, ?, ?)";
+    private final String SAVE_SQL = "INSERT INTO card(id, name, damage, package_id) VALUES(?, ?, ?, ?)";
 
-    private final Database database = new Database();
+    private final Database database = Database.getInstance();
+
 
     @Override
     public List<Card> findAll() {
@@ -31,8 +32,8 @@ public class DatabaseCardRepository implements CardRepository {
                 Card card = new Card(
                         rs.getString("id"),
                         rs.getString("name"),
-                        rs.getString("description"),
-                        rs.getBoolean("done")
+                        rs.getString("damage"),
+                        rs.getString("package_id")
                 );
                 cards.add(card);
             }
@@ -56,9 +57,8 @@ public class DatabaseCardRepository implements CardRepository {
         ) {
             pstmt.setString(1, card.getId());
             pstmt.setString(2, card.getName());
-            pstmt.setString(3, card.getDescription());
-            pstmt.setBoolean(4, card.isDone());
-
+            pstmt.setString(3, card.getDamage());
+            pstmt.setString(4, card.getPackageId());
             pstmt.execute();
         } catch (SQLException e) {
             // THOUGHT: how do i handle exceptions (hint: look at the TaskApp)
@@ -66,5 +66,6 @@ public class DatabaseCardRepository implements CardRepository {
 
         return card;
     }
+
 
 }

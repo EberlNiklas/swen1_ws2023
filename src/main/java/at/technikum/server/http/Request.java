@@ -10,6 +10,7 @@ public class Request {
 
     private String host;
 
+    private String httpHeader;
     // application/json, text/plain
     private String contentType;
 
@@ -19,15 +20,13 @@ public class Request {
     // none, "{ "name": "foo" }"
     private String body;
 
-    private String httpHeader;
-
     public String getMethod() {
         return method;
     }
 
     public void setMethod(HttpMethod httpMethod) {
         this.method = httpMethod.getMethod();
-    }
+    } //speichert noch den String (nicht HttpMethod Obj)
 
     public String getRoute() {
         return route;
