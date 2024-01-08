@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.49">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>946</IntrospectionStateNumber>
+      <IntrospectionStateNumber>954</IntrospectionStateNumber>
       <ServerVersion>16.1</ServerVersion>
-      <StartupTime>1704636693</StartupTime>
+      <StartupTime>1704712694</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1398,7 +1398,6 @@ false posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>946</IntrospectionStateNumber>
       <ObjectId>16389</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -1414,7 +1413,7 @@ false posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>888</IntrospectionStateNumber>
+      <IntrospectionStateNumber>954</IntrospectionStateNumber>
       <ObjectId>5</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4833,7 +4832,6 @@ false posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>946</IntrospectionStateNumber>
       <IntrospectionTimestamp>2024-01-07.15:13:46.766</IntrospectionTimestamp>
       <LocalIntrospectionTimestamp>2024-01-07.14:13:47</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
@@ -8191,9 +8189,9 @@ false posixrules
     <schema id="508" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>888</IntrospectionStateNumber>
-      <IntrospectionTimestamp>2024-01-07.15:12:07.425</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2024-01-07.14:12:08</LocalIntrospectionTimestamp>
+      <IntrospectionStateNumber>954</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2024-01-08.12:18:49.038</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2024-01-08.11:18:49</LocalIntrospectionTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>

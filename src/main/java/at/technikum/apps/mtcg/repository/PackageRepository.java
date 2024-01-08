@@ -11,5 +11,8 @@ public interface PackageRepository {
 
     Package update(Package oldPkg, Package newPkg);
 
+    int getCoinsFromUser(String username);
+
+    String getIdFromUser(String username);
 
 }

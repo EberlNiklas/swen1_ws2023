@@ -25,4 +25,12 @@ public class PackageService {
         return packageRepository.save(packageToBeCreated);
     }
 
+    public int getCoinsFromUser(String username){
+        return packageRepository.getCoinsFromUser(username);
+    }
+
+    public String getIdFromUser(String username){
+        return packageRepository.getIdFromUser(username);
+    }
+
 }
