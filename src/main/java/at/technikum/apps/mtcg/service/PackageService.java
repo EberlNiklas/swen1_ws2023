@@ -4,6 +4,7 @@ import at.technikum.apps.mtcg.entity.Package;
 import at.technikum.apps.mtcg.repository.DatabasePackageRepository;
 import at.technikum.apps.mtcg.repository.PackageRepository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
@@ -16,8 +17,8 @@ public class PackageService {
         this.packageRepository = new DatabasePackageRepository();
     }
 
-    public Package update(Package oldPkg, Package newPkg){
-        return packageRepository.update(oldPkg,newPkg);
+    public void updateCoins(String username, int costs){
+        packageRepository.updateCoins(username, costs);
     }
 
     public Package save(Package packageToBeCreated) {
@@ -31,6 +32,18 @@ public class PackageService {
 
     public String getIdFromUser(String username){
         return packageRepository.getIdFromUser(username);
+    }
+
+    public String getIdFromPackage(){
+        return packageRepository.getIdFromPackage();
+    }
+
+    public List<String> getCardsFromPackage(String package_id){
+        return packageRepository.getCardsInPackage(package_id);
+    }
+
+    public void delete(String package_id){
+        packageRepository.delete(package_id);
     }
 
 }

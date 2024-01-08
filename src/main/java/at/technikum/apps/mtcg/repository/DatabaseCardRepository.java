@@ -14,7 +14,7 @@ import java.util.Optional;
 public class DatabaseCardRepository implements CardRepository {
 
     private final String FIND_ALL_SQL = "SELECT * FROM card";
-    private final String SAVE_SQL = "INSERT INTO card(id, name, damage, package_id) VALUES(?, ?, ?, ?)";
+    private final String SAVE = "INSERT INTO card(id, name, damage, package_id) VALUES(?, ?, ?, ?)";
 
     private final Database database = Database.getInstance();
 
@@ -53,7 +53,7 @@ public class DatabaseCardRepository implements CardRepository {
     public Card save(Card card) {
         try (
                 Connection con = database.getConnection();
-                PreparedStatement pstmt = con.prepareStatement(SAVE_SQL)
+                PreparedStatement pstmt = con.prepareStatement(SAVE)
         ) {
             pstmt.setString(1, card.getId());
             pstmt.setString(2, card.getName());

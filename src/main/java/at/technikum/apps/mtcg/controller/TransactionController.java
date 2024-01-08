@@ -2,10 +2,13 @@ package at.technikum.apps.mtcg.controller;
 
 import at.technikum.apps.mtcg.service.PackageService;
 import at.technikum.apps.mtcg.service.SessionService;
+import at.technikum.apps.mtcg.service.StackService;
 import at.technikum.server.http.ContentType;
 import at.technikum.server.http.HttpStatus;
 import at.technikum.server.http.Request;
 import at.technikum.server.http.Response;
+
+import java.util.List;
 
 public class TransactionController extends AbstractController{
 
@@ -13,9 +16,12 @@ public class TransactionController extends AbstractController{
 
     private final PackageService packageService;
 
-    public TransactionController(SessionService sessionService, PackageService packageService) {
-        this.sessionService = sessionService;
-        this.packageService = packageService;
+    private final StackService stackService;
+
+    public TransactionController() {
+        this.sessionService = new SessionService();
+        this.packageService = new PackageService();
+        this.stackService = new StackService();
     }
 
     @Override
@@ -47,9 +53,29 @@ public class TransactionController extends AbstractController{
                 if(user_coins >= costs){
 
                     String user_id = packageService.getIdFromUser(username);
+                    String package_id = packageService.getIdFromPackage();
 
+                    if(package_id == null){
+                        return json(HttpStatus.NOT_FOUND, "No more packages available for purchase!");
+                    }
+                    List<String> cardsInPackage = packageService.getCardsFromPackage(package_id);
+
+                    for (String card_id : cardsInPackage){
+                        stackService.saveCardsIntoStack(user_id, card_id);
+                    }
+
+                    packageService.updateCoins(username, costs);
+                    packageService.delete(package_id);
+
+                    return ok(HttpStatus.OK);
+                }else{
+                    return badRequest(HttpStatus.BAD_REQUEST);
                 }
+            }else{
+                return notAllowed(HttpStatus.NOT_ALLOWED);
             }
         }
+     return badRequest(HttpStatus.BAD_REQUEST);
     }
+
 }

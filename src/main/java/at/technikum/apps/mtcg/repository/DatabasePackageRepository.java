@@ -8,6 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -20,6 +22,12 @@ public class DatabasePackageRepository implements PackageRepository{
 
     private final String GET_ID_FROM_USER = "SELECT id FROM users WHERE username = ?";
     private final String GET_ID_FROM_PACKAGE = "SELECT * FROM packages ORDER BY RANDOM() LIMIT 1";
+
+    private final String GET_CARDS = "SELECT id FROM cards WHERE package_id = ?";
+
+    private final String UPDATE_USER_COINS = "UPDATE users SET coins = coins - ? WHERE username = ?";
+
+    private final String DELETE = "DELETE from packages WHERE package_id = ?";
     private final Database database = Database.getInstance();
     private final CardRepository cardRepository = new DatabaseCardRepository();
     @Override
@@ -107,7 +115,51 @@ public class DatabasePackageRepository implements PackageRepository{
     }
 
     @Override
-    public Package update(Package oldPkg, Package newPkg) {
-        return null;
+    public List<String> getCardsInPackage(String package_id){
+        List<String> cards = new ArrayList<>();
+
+        try (
+                Connection con = database.getConnection();
+                PreparedStatement pstmt = con.prepareStatement(GET_CARDS)
+        ) {
+            pstmt.setString(1, package_id);
+            try (ResultSet rs = pstmt.executeQuery()){
+                if(rs.next()){
+                    cards.add(rs.getString("id"));
+                }
+            }
+        }catch (SQLException e){
+            System.err.println("SQL Exception! Message: " + e.getMessage());
+        }
+        return cards;
+
+    }
+
+    @Override
+    public void updateCoins(String username, int costs) {
+
+        try (
+                Connection con = database.getConnection();
+                PreparedStatement pstmt = con.prepareStatement(UPDATE_USER_COINS)
+        ) {
+            pstmt.setInt(1, costs);
+            pstmt.setString(2, username);
+            pstmt.executeUpdate();
+        }catch (SQLException e){
+            System.err.println("SQL Exception! Message: " + e.getMessage());
+        }
+    }
+
+    @Override
+    public void delete(String package_id) {
+        try (
+                Connection con = database.getConnection();
+                PreparedStatement pstmt = con.prepareStatement(DELETE)
+        ) {
+            pstmt.setString(1, package_id);
+            pstmt.execute();
+        }catch (SQLException e){
+            System.err.println("SQL Exception! Message: " + e.getMessage());
+        }
     }
 }
