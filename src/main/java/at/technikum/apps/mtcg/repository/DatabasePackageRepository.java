@@ -23,11 +23,11 @@ public class DatabasePackageRepository implements PackageRepository{
     private final String GET_ID_FROM_USER = "SELECT id FROM users WHERE username = ?";
     private final String GET_ID_FROM_PACKAGE = "SELECT * FROM packages ORDER BY RANDOM() LIMIT 1";
 
-    private final String GET_CARDS = "SELECT id FROM cards WHERE package_id = ?";
+    private final String GET_CARDS = "SELECT id FROM card WHERE package_id = ?";
 
     private final String UPDATE_USER_COINS = "UPDATE users SET coins = coins - ? WHERE username = ?";
 
-    private final String DELETE = "DELETE from packages WHERE package_id = ?";
+    private final String DELETE = "DELETE from packages WHERE id = ?";
     private final Database database = Database.getInstance();
     private final CardRepository cardRepository = new DatabaseCardRepository();
     @Override
@@ -124,7 +124,7 @@ public class DatabasePackageRepository implements PackageRepository{
         ) {
             pstmt.setString(1, package_id);
             try (ResultSet rs = pstmt.executeQuery()){
-                if(rs.next()){
+                while(rs.next()){
                     cards.add(rs.getString("id"));
                 }
             }

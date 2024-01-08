@@ -12,8 +12,6 @@ CREATE TABLE IF NOT EXISTS users (
     deck_id VARCHAR(255)
     );
 
-
-
 CREATE TABLE IF NOT EXISTS packages (
     id VARCHAR(255) PRIMARY KEY,
     user_id VARCHAR(255) REFERENCES users(id)
@@ -23,7 +21,7 @@ CREATE TABLE IF NOT EXISTS card (
     id VARCHAR(255) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     damage VARCHAR(255),
-    package_id VARCHAR(255) NOT NULL REFERENCES packages(id)
+    package_id VARCHAR(255) REFERENCES packages(id) ON DELETE SET NULL
 );
 
 CREATE TABLE IF NOT EXISTS stack (

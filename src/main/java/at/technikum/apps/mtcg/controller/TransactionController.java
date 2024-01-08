@@ -45,6 +45,7 @@ public class TransactionController extends AbstractController{
         if(request.getContentType().equals("application/json")){
             String token= request.getHttpHeader();
             String username = extractUsername(token);
+            token = token.split(" ")[1];
 
             if(sessionService.isLoggedIn(token)){
                 int costs = 5;
