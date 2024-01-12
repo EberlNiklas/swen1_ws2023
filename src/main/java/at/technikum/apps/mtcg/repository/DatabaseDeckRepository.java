@@ -12,16 +12,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DatabaseDeckRepository implements DeckRepository{
+public class DatabaseDeckRepository implements DeckRepository {
 
-    private final String FIND_ALL = "SELECT card_id FROM deck where deck_id = ?";
+    private final String FIND_ALL = "SELECT card_id FROM deckcards where deck_id = ?";
     private final String SAVE = "INSERT INTO deck(deck_id, user_id) VALUES(?, ?)";
 
     private final String GET_DECK_ID = "SELECT deck_id FROM deck WHERE user_id = ?";
 
     private final String GET_ID_FROM_USER = "SELECT id FROM users WHERE username = ?";
 
-    private final String SAVE_IN_USER = "UPDATE users SET deck_id = ? where id = ?";
+    private final String CHECK_IF_CARDS_MATCH_USER = "SELECT card_id FROM stack WHERE user_id = ? and card_id IN (?, ?, ?, ?)";
+
+    private final String SAVE_CARDS_IN_DECK = "INSERT INTO deckcards(card_id, deck_id) VALUES (?, ?)";
     private final Database database = Database.getInstance();
     private final CardRepository cardRepository = new DatabaseCardRepository();
 
@@ -42,7 +44,7 @@ public class DatabaseDeckRepository implements DeckRepository{
     }
 
     @Override
-    public String getDeck_Id(String user_id){
+    public String getDeck_Id(String user_id) {
         String deck_id = null;
 
         try (
@@ -50,12 +52,12 @@ public class DatabaseDeckRepository implements DeckRepository{
                 PreparedStatement pstmt = con.prepareStatement(GET_DECK_ID)
         ) {
             pstmt.setString(1, user_id);
-            try (ResultSet rs = pstmt.executeQuery()){
-                if(rs.next()){
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
                     deck_id = rs.getString("deck_id");
                 }
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.err.println("SQL Exception! Message: " + e.getMessage());
         }
         return deck_id;
@@ -63,7 +65,7 @@ public class DatabaseDeckRepository implements DeckRepository{
     }
 
     @Override
-    public String getIdFromUser(String username){
+    public String getIdFromUser(String username) {
         String id = null;
 
         try (
@@ -71,12 +73,12 @@ public class DatabaseDeckRepository implements DeckRepository{
                 PreparedStatement pstmt = con.prepareStatement(GET_ID_FROM_USER)
         ) {
             pstmt.setString(1, username);
-            try (ResultSet rs = pstmt.executeQuery()){
-                if(rs.next()){
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
                     id = rs.getString("id");
                 }
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.err.println("SQL Exception! Message: " + e.getMessage());
         }
         return id;
@@ -84,20 +86,21 @@ public class DatabaseDeckRepository implements DeckRepository{
     }
 
     @Override
-    public List <String> findAll(String deck_id){
+    public List<String> findAll(String deck_id) {
         List<String> cardsInDeck = new ArrayList<>();
         try (
                 Connection con = database.getConnection();
                 PreparedStatement pstmt = con.prepareStatement(FIND_ALL)
         ) {
             pstmt.setString(1, deck_id);
-            try (ResultSet rs = pstmt.executeQuery()){
-                while(rs.next()){
+            ResultSet rs = pstmt.executeQuery();
+            while (rs.next()) {
                     String card = rs.getString("card_id");
-                    cardsInDeck.add(card);
+                    if(card != null){
+                        cardsInDeck.add(card);
+                    }
                 }
-            }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             System.err.println("SQL Exception! Message: " + e.getMessage());
         }
         return cardsInDeck;
@@ -105,22 +108,54 @@ public class DatabaseDeckRepository implements DeckRepository{
     }
 
     @Override
-    public void saveDeckInUser(String deck_id, String user_id){
+    public boolean checkIfCardsMatchUser(List<String> cards, String user_id) {
         try (
                 Connection con = database.getConnection();
-                PreparedStatement pstmt = con.prepareStatement(SAVE_IN_USER)
+                PreparedStatement pstmt = con.prepareStatement(CHECK_IF_CARDS_MATCH_USER)
         ) {
-            pstmt.setString(1, deck_id);
-            pstmt.setString(2, user_id);
-            pstmt.execute();
-        }catch (SQLException e){
-            System.err.println("SQL Exception! Message: " + e.getMessage());
+            pstmt.setString(1, user_id);
+            for (int i = 0; i < cards.size(); i++) {
+                pstmt.setString(i + 2, cards.get(i));
+            }
+            try (ResultSet rs = pstmt.executeQuery()) {
+                return !rs.next();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException();
         }
-
-
     }
 
+    @Override
+    public void saveCardsInDeck(List<String> cards, String deck_id) {
+        try (
+                Connection con = database.getConnection();
+                PreparedStatement pstmt = con.prepareStatement(SAVE_CARDS_IN_DECK)
+        ) {
+            for (int i = 0; i < cards.size(); i++) {
+                pstmt.setString(1, cards.get(i));
+                pstmt.setString(2, deck_id);
+                pstmt.execute();
+            }
+        } catch (SQLException e) {
+            System.err.println("SQL Exception! Message: " + e.getMessage());
+        }
+    }
 
+    @Override
+    public void updateCardsInDeck(List<String> cards, String deck_id) {
+        try (
+                Connection con = database.getConnection();
+                PreparedStatement pstmt = con.prepareStatement(SAVE_CARDS_IN_DECK)
+        ) {
+            for (int i = 0; i < cards.size(); i++) {
+                pstmt.setString(1, cards.get(i));
+                pstmt.setString(2, deck_id);
+                pstmt.execute();
+            }
+        } catch (SQLException e) {
+            System.err.println("SQL Exception! Message: " + e.getMessage());
+        }
+    }
 
 
 }

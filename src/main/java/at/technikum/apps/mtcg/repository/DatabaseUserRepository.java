@@ -17,7 +17,7 @@ public class DatabaseUserRepository implements UserRepository{
 
     private final String FIND_BY_USERNAME = "SELECT username FROM users WHERE username = ?";
     private final String FIND_BY_USERNAME_AND_PASSWORD = "SELECT * FROM users WHERE username = ? AND password = ?";
-    private final String SAVE = "INSERT INTO users(id, username, password, points, coins, deck_id) VALUES(?, ?, ?, ?, ?, ?)";
+    private final String SAVE = "INSERT INTO users(id, username, password, points, coins) VALUES(?, ?, ?, ?, ?)";
     private final String UPDATE = "UPDATE users SET bio = ?, image = ?, name = ? WHERE username = ?";
     private final String GET_POINTS_SQL = "SELECT points FROM users WHERE username = ?";
     private final String GET_ALL_POINTS_SQL = "SELECT points FROM users";
@@ -65,7 +65,6 @@ public class DatabaseUserRepository implements UserRepository{
                         rs.getString("password"),
                         rs.getInt("points"),
                         rs.getInt("coins"),
-                        rs.getString("deck_id"),
                         rs.getString("bio"),
                         rs.getString("image"),
                         rs.getString("name"));
@@ -114,8 +113,7 @@ public class DatabaseUserRepository implements UserRepository{
                             rs.getString("username"),
                             rs.getString("password"),
                             rs.getInt("points"),
-                            rs.getInt("coins"),
-                            rs.getString("deck_id"));
+                            rs.getInt("coins"));
                 }
             }
         }catch (SQLException e) {
@@ -135,7 +133,6 @@ public class DatabaseUserRepository implements UserRepository{
             pstmt.setString(3, user.getPassword());
             pstmt.setInt(4, 100);
             pstmt.setInt(5, 20);
-            pstmt.setString(6, user.getDeckID());
 
 
             pstmt.execute();

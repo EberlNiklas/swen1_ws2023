@@ -32,7 +32,15 @@ public class DeckService {
         return deckRepository.findAll(deck_id);
     }
 
-    public void saveDeckInUser(String deck_id, String user_id){
-        deckRepository.saveDeckInUser(deck_id, user_id);
+    public boolean checkIfCardsMatchUser(List<String> cards, String user_id){
+        return deckRepository.checkIfCardsMatchUser(cards, user_id);
+    }
+
+    public void saveCardsInDeck(List<String> cards, String deck_id){
+        deckRepository.saveCardsInDeck(cards, deck_id);
+    }
+
+    public void updateCardsInDeck(List<String> cards, String deck_id){
+        deckRepository.updateCardsInDeck(cards, deck_id);
     }
 }

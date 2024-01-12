@@ -5,44 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9600656f-29c9-4630-a2d2-0cefe336f4bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/mtcgdb.CXKRwA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/public.abK9xQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sql/cards_app.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/cards_app.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/MtcgApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/MtcgApp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/entity/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/entity/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabasePackageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabasePackageRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/display/DisplayApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/display/DisplayApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/MtcgApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/MtcgApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseDeckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseDeckRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DeckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DeckRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/service/DeckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/service/DeckService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/DeckController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/PackageController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/PackageController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/SessionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/SessionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/TransactionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/abstractController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/abstractController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/entity/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/entity/Deck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabasePackageRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabasePackageRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseStackRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseStackRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseDeckRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseDeckRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseUserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/SessionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/SessionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/server/http/ContentType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/server/http/ContentType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/server/http/HttpMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/server/http/HttpMethod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/server/http/HttpStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/server/http/HttpStatus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/server/util/HttpMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/server/util/HttpMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/server/util/HttpResponseConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/server/util/HttpResponseConverter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DeckRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DeckRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/DeckService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/DeckService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,26 +107,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705060521674</updated>
-      <workItem from="1705060522747" duration="7011000" />
+      <workItem from="1705060522747" duration="13574000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/DeckController.java</url>
-          <line>50</line>
-          <properties class="at.technikum.apps.mtcg.controller.DeckController" method="readAll">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

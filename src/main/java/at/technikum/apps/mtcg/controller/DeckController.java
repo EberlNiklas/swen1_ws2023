@@ -10,9 +10,11 @@ import at.technikum.server.http.HttpStatus;
 import at.technikum.server.http.Request;
 import at.technikum.server.http.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DeckController extends AbstractController {
@@ -53,14 +55,13 @@ public class DeckController extends AbstractController {
         String token = request.getHttpHeader();
         String username = extractUsername(token);
         token = token.split(" ")[1];
-        String user_id = deckService.getIdFromUser(username); //TODO getUser_Id in DeckService
-        String deck_id = deckService.getDeck_Id(user_id); //TODO getDeck_Id in DeckService
+        String user_id = deckService.getIdFromUser(username);
+        String deck_id = deckService.getDeck_Id(user_id);
 
         if (sessionService.isLoggedIn(token)) {
             if(deck_id == null){
                 Deck deck = new Deck();
                 deckService.save(deck, user_id);//TODO DeckService save erstellen und hier das Deck saven
-                deckService.saveDeckInUser(deck.getDeck_id(), user_id);//TODO DeckService man muss das Deck auch im User speichern
                 }
 
             List<String> cardsInDeck = deckService.findAll(deck_id); //TODO DeckService findAll erstellen
@@ -81,9 +82,44 @@ public class DeckController extends AbstractController {
 
     public Response configure(Request request){
 
+        if (request.getContentType().equals("application/json")) {
 
+            String token = request.getHttpHeader();
+            String username = extractUsername(token);
+            token = token.split(" ")[1];
+            String user_id = deckService.getIdFromUser(username);
+            String deck_id = deckService.getDeck_Id(user_id);
 
-        return notAllowed(HttpStatus.NOT_ALLOWED);
+            if(sessionService.isLoggedIn(token)){
+
+                List<String> cardsToPutInDeck;
+                ObjectMapper objectMapper = new ObjectMapper();
+
+                try {
+                    cardsToPutInDeck = objectMapper.readValue(request.getBody(), new TypeReference<List<String>>(){});
+                } catch (JsonProcessingException e) {
+                    return badRequest(HttpStatus.BAD_REQUEST);
+                }
+
+                if(cardsToPutInDeck.size() != 4){
+                    return json(HttpStatus.BAD_REQUEST, "Insufficient number of cards!");
+                }
+
+                if(deckService.checkIfCardsMatchUser(cardsToPutInDeck, user_id)){
+                    return json(HttpStatus.BAD_REQUEST, "Cards dont belong to user");
+                }
+
+                List<String> cards = deckService.findAll(deck_id);
+                if(cards.isEmpty()){
+                    deckService.saveCardsInDeck(cardsToPutInDeck, deck_id);
+                    return ok(HttpStatus.OK);
+                }
+                deckService.updateCardsInDeck(cardsToPutInDeck, deck_id);
+            }else{
+                return notAllowed(HttpStatus.NOT_ALLOWED);
+            }
+        }
+        return ok(HttpStatus.OK);
     }
 }
 

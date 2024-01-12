@@ -14,5 +14,9 @@ public interface DeckRepository {
 
     List<String> findAll(String deck_id);
 
-    void saveDeckInUser(String deck_id, String user_id);
+    boolean checkIfCardsMatchUser(List<String> cards, String user_id);
+
+    void saveCardsInDeck(List<String> cards, String deck_id);
+
+    void updateCardsInDeck(List<String> cards, String deck_id);
 }

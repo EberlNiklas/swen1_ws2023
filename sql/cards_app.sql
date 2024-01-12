@@ -8,8 +8,7 @@ CREATE TABLE IF NOT EXISTS users (
     username VARCHAR(255) NOT NULL UNIQUE ,
     password VARCHAR(255) NOT NULL,
     points INT DEFAULT 100,
-    coins INT DEFAULT 20,
-    deck_id VARCHAR(255)
+    coins INT DEFAULT 20
     );
 
 CREATE TABLE IF NOT EXISTS packages (
@@ -34,14 +33,20 @@ CREATE TABLE IF NOT EXISTS stack (
 
 CREATE TABLE IF NOT EXISTS deck (
     deck_id VARCHAR(255) PRIMARY KEY,
-    card_id VARCHAR(255),
     user_id VARCHAR(255),
-    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS deckcards (
+    deck_id VARCHAR(255),
+    card_id VARCHAR(255),
+    PRIMARY KEY (deck_id, card_id),
+    FOREIGN KEY (deck_id) REFERENCES deck(deck_id),
     FOREIGN KEY (card_id) REFERENCES card(id)
 );
 
 
-DROP TABLE card, packages, users, stack, deck
+DROP TABLE card, packages, users, stack, deck, deckcards
 
 
 

@@ -12,8 +12,6 @@ public class User {
 
     private int coins;
 
-    private String deckID;
-
     private String bio;
 
     private String image;
@@ -25,25 +23,23 @@ public class User {
 
     }
 
-    public User(String id, String username, String password, int points, int coins, String deckID, String bio, String image, String name) {
+    public User(String id, String username, String password, int points, int coins, String bio, String image, String name) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.points = points;
         this.coins = coins;
-        this.deckID = deckID;
         this.bio = bio;
         this.image = image;
         this.name = name;
     }
 
-    public User(String id, String username, String password, int points, int coins, String deckID) {
+    public User(String id, String username, String password, int points, int coins) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.points = points;
         this.coins = coins;
-        this.deckID = deckID;
     }
     public String getId() {
         return id;
@@ -83,14 +79,6 @@ public class User {
 
     public void setCoins(int coins) {
         this.coins = coins;
-    }
-
-    public String getDeckID() {
-        return deckID;
-    }
-
-    public void setDeckID(String deckID) {
-        this.deckID = deckID;
     }
 
     public String getBio() {
