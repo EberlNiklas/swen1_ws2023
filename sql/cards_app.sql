@@ -32,8 +32,16 @@ CREATE TABLE IF NOT EXISTS stack (
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
 
+CREATE TABLE IF NOT EXISTS deck (
+    deck_id VARCHAR(255) PRIMARY KEY,
+    card_id VARCHAR(255),
+    user_id VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (card_id) REFERENCES card(id)
+);
 
-DROP TABLE card, packages, users, stack
+
+DROP TABLE card, packages, users, stack, deck
 
 
 

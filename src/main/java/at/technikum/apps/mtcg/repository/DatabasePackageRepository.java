@@ -47,7 +47,7 @@ public class DatabasePackageRepository implements PackageRepository{
             }
 
         } catch (SQLException e) {
-            // THOUGHT: how do i handle exceptions (hint: look at the TaskApp)
+            System.err.println("SQL Exception! Message: " + e.getMessage());
         }
         return packageToBeCreated;
     }

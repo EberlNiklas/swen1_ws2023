@@ -14,6 +14,10 @@ public class Deck {
         this.deck_id = deck_id;
     }
 
+    public Deck(){
+
+    }
+
     public String getDeck_id() {
         return deck_id;
     }

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9600656f-29c9-4630-a2d2-0cefe336f4bd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/mtcgdb.CXKRwA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/public.abK9xQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/postgres.edMnLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/postgres.edMnLQ/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/intellij-javadocs-4.0.1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/cards_app.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/cards_app.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/MtcgApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/MtcgApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/DeckController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/entity/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/entity/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabasePackageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabasePackageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/display/DisplayApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/display/DisplayApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/MtcgApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/MtcgApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/DeckController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/PackageController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/PackageController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/SessionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/SessionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/TransactionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/TransactionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/abstractController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/abstractController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/entity/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/entity/Deck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabasePackageRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabasePackageRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseStackRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseStackRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseUserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/SessionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/SessionService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/server/http/ContentType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/server/http/ContentType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/server/http/HttpMethod.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/server/http/HttpMethod.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/server/http/HttpStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/server/http/HttpStatus.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/server/util/HttpMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/server/util/HttpMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/server/util/HttpResponseConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/server/util/HttpResponseConverter.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2aqyhCP55Mf4rGBYa5JOPQmiesM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/alexa/IdeaProjects/swen1_ws2023",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="at.technikum.main" />
+      <module name="swen1_ws2023" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.technikum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-openjdk-21.0.1-f644763e9732-f98dd351" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9600656f-29c9-4630-a2d2-0cefe336f4bd" name="Changes" comment="" />
+      <created>1705060521674</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705060521674</updated>
+      <workItem from="1705060522747" duration="7011000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/DeckController.java</url>
+          <line>50</line>
+          <properties class="at.technikum.apps.mtcg.controller.DeckController" method="readAll">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
