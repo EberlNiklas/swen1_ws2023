@@ -1,20 +1,14 @@
 package at.technikum.apps.mtcg.controller;
 
-import at.technikum.apps.mtcg.entity.Card;
 import at.technikum.apps.mtcg.entity.User;
 import at.technikum.apps.mtcg.repository.DatabaseUserRepository;
-import at.technikum.apps.mtcg.service.CardService;
 import at.technikum.apps.mtcg.service.UserService;
-import at.technikum.server.http.ContentType;
 import at.technikum.server.http.HttpStatus;
 import at.technikum.server.http.Request;
 import at.technikum.server.http.Response;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-
-import java.util.Optional;
 
 public class UserController extends AbstractController {
 
@@ -34,7 +28,7 @@ public class UserController extends AbstractController {
     public Response handle(Request request) {
         if (request.getRoute().equals("/users")) {
 
-            if(request.getMethod().equals("POST")){
+            if (request.getMethod().equals("POST")) {
                 return create(request);
             }
 
@@ -49,7 +43,7 @@ public class UserController extends AbstractController {
             }
             return notAllowed(HttpStatus.NOT_ALLOWED);
         }
-         return notAllowed(HttpStatus.NOT_ALLOWED);
+        return notAllowed(HttpStatus.NOT_ALLOWED);
 
     }
 
@@ -70,12 +64,12 @@ public class UserController extends AbstractController {
         }
 
         String checkIfExists = userService.findUserString(user.getUsername());
-        if(checkIfExists != null){
+        if (checkIfExists != null) {
             return badRequest(HttpStatus.BAD_REQUEST);
         }
         user = userService.registration(user);
 
-        if(user == null) {
+        if (user == null) {
             return notFound(HttpStatus.NOT_FOUND);
         }
 
@@ -89,15 +83,15 @@ public class UserController extends AbstractController {
         return json(HttpStatus.CREATED, userJson);
     }
 
-    public Response readAll(Request request, String user){
-        String token =request.getHttpHeader();
+    public Response readAll(Request request, String user) {
+        String token = request.getHttpHeader();
         String username = extractUsername(token);
 
-        if(!user.equals(username)){
+        if (!user.equals(username)) {
             return badRequest(HttpStatus.BAD_REQUEST);
         }
 
-        if(!userService.isValid(username)){
+        if (!userService.isValid(username)) {
             return notAllowed(HttpStatus.NOT_ALLOWED);
         }
 
@@ -105,27 +99,27 @@ public class UserController extends AbstractController {
 
         ObjectMapper objectMapper = new ObjectMapper();
         String userJson;
-        try{
+        try {
             userJson = objectMapper.writeValueAsString(userFound);
-        }catch (JsonProcessingException e){
+        } catch (JsonProcessingException e) {
             return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    public Response update(Request request, String user){
-        if(!request.getContentType().equals("application/json")){
+    public Response update(Request request, String user) {
+        if (!request.getContentType().equals("application/json")) {
             return badRequest(HttpStatus.BAD_REQUEST);
         }
 
         String token = request.getHttpHeader();
         String username = extractUsername(token);
 
-        if(!user.equals(username)){
+        if (!user.equals(username)) {
             return badRequest(HttpStatus.BAD_REQUEST);
         }
 
-        if(!userService.isValid(username)){
+        if (!userService.isValid(username)) {
             return notAllowed(HttpStatus.NOT_ALLOWED);
         }
 
@@ -133,18 +127,18 @@ public class UserController extends AbstractController {
 
         objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
         User updatedUser;
-        try{
+        try {
             updatedUser = objectMapper.readValue(request.getBody(), User.class);
-        }catch (JsonProcessingException e){
+        } catch (JsonProcessingException e) {
             return badRequest(HttpStatus.BAD_REQUEST);
         }
 
         User player = userService.update(updatedUser, username);
         String userJson;
 
-        try{
+        try {
             userJson = objectMapper.writeValueAsString(player);
-        }catch (JsonProcessingException e){
+        } catch (JsonProcessingException e) {
             return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return json(HttpStatus.OK, userJson);

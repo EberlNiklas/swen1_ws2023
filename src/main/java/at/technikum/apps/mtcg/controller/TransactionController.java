@@ -3,14 +3,13 @@ package at.technikum.apps.mtcg.controller;
 import at.technikum.apps.mtcg.service.PackageService;
 import at.technikum.apps.mtcg.service.SessionService;
 import at.technikum.apps.mtcg.service.StackService;
-import at.technikum.server.http.ContentType;
 import at.technikum.server.http.HttpStatus;
 import at.technikum.server.http.Request;
 import at.technikum.server.http.Response;
 
 import java.util.List;
 
-public class TransactionController extends AbstractController{
+public class TransactionController extends AbstractController {
 
     private final SessionService sessionService;
 
@@ -40,28 +39,28 @@ public class TransactionController extends AbstractController{
         return notAllowed(HttpStatus.NOT_ALLOWED);
     }
 
-    public Response buyPackage(Request request){
+    public Response buyPackage(Request request) {
 
-        if(request.getContentType().equals("application/json")){
-            String token= request.getHttpHeader();
+        if (request.getContentType().equals("application/json")) {
+            String token = request.getHttpHeader();
             String username = extractUsername(token);
             token = token.split(" ")[1];
 
-            if(sessionService.isLoggedIn(token)){
+            if (sessionService.isLoggedIn(token)) {
                 int costs = 5;
                 int user_coins = packageService.getCoinsFromUser(username);
 
-                if(user_coins >= costs){
+                if (user_coins >= costs) {
 
                     String user_id = packageService.getIdFromUser(username);
                     String package_id = packageService.getIdFromPackage();
 
-                    if(package_id == null){
+                    if (package_id == null) {
                         return json(HttpStatus.NOT_FOUND, "No more packages available for purchase!");
                     }
                     List<String> cardsInPackage = packageService.getCardsFromPackage(package_id);
 
-                    for (String card_id : cardsInPackage){
+                    for (String card_id : cardsInPackage) {
                         stackService.saveCardsIntoStack(user_id, card_id);
                     }
 
@@ -69,14 +68,14 @@ public class TransactionController extends AbstractController{
                     packageService.delete(package_id);
 
                     return ok(HttpStatus.OK);
-                }else{
-                    return badRequest(HttpStatus.BAD_REQUEST);
+                } else {
+                    return json(HttpStatus.BAD_REQUEST, "User has no coins left!");
                 }
-            }else{
+            } else {
                 return notAllowed(HttpStatus.NOT_ALLOWED);
             }
         }
-     return badRequest(HttpStatus.BAD_REQUEST);
+        return badRequest(HttpStatus.BAD_REQUEST);
     }
 
 }

@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 //Verwaltet Client Anfrage über Socket
 //Ruft Serverlogik auf
 //Generiert HTTP Antwort und sendet sie an Client
-public class RequestHandler {
+public class RequestHandler implements Runnable{
 
     private BufferedReader in;
     private PrintWriter out;
@@ -31,6 +31,15 @@ public class RequestHandler {
     public RequestHandler(Socket client, ServerApplication app) {
         this.client = client;
         this.app = app;
+    }
+
+    @Override
+    public void run() {
+        try {
+            handle();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void handle() throws IOException {
