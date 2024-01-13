@@ -5,22 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9600656f-29c9-4630-a2d2-0cefe336f4bd" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/9583932b-323a-412a-aab9-a03990d0f0f0/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/cards_app.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/cards_app.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/DeckController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/DeckController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseDeckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseDeckRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/CardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/SessionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/SessionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/CardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/CardRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseCardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseCardRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DeckRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DeckRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/service/DeckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/service/DeckService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/DeckController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/DeckController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseDeckRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseDeckRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/MemoryCardRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/service/CardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/service/CardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/at/technikum/apps/mtcg/repository/MemoryCardRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/at/technikum/apps/mtcg/repository/MemoryCardRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/CardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/CardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/SessionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/SessionController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/CardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/CardRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseCardRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseCardRepository.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseUserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DeckRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DeckRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/DeckService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/DeckService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/MemoryCardRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/UserRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/CardService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/CardService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/service/UserService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,40 +48,40 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2aqyhCP55Mf4rGBYa5JOPQmiesM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/alexa/IdeaProjects/swen1_ws2023",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alexa/IdeaProjects/swen1_ws2023&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="at.technikum.main" />
@@ -107,7 +117,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705060521674</updated>
-      <workItem from="1705060522747" duration="13574000" />
+      <workItem from="1705060522747" duration="14498000" />
+      <workItem from="1705148086937" duration="3783000" />
     </task>
     <servers />
   </component>

@@ -21,7 +21,7 @@ public class SessionController extends AbstractController{
 
 
     public SessionController() {
-        this.userService = new UserService(new DatabaseUserRepository());
+        this.userService = new UserService();
         this.sessionService = new SessionService();
     }
 

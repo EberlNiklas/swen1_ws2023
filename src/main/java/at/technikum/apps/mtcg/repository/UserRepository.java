@@ -25,5 +25,6 @@ public interface UserRepository {
 
     User save(User user);
 
+    String getIdFromUser(String username);
 
 }

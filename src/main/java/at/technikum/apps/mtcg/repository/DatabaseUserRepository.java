@@ -22,6 +22,8 @@ public class DatabaseUserRepository implements UserRepository{
     private final String GET_POINTS_SQL = "SELECT points FROM users WHERE username = ?";
     private final String GET_ALL_POINTS_SQL = "SELECT points FROM users";
     private final String TOKEN_SQL = "SELECT username FROM users WHERE username = ?";
+
+    private final String GET_ID_FROM_USER = "SELECT id FROM users WHERE username = ?";
     private final Database database = Database.getInstance();
 
 
@@ -196,6 +198,27 @@ public class DatabaseUserRepository implements UserRepository{
             System.err.println("SQL exception occurred: " + e.getMessage());
         }
         return list;
+    }
+
+    @Override
+    public String getIdFromUser(String username){
+        String id = null;
+
+        try (
+                Connection con = database.getConnection();
+                PreparedStatement pstmt = con.prepareStatement(GET_ID_FROM_USER)
+        ) {
+            pstmt.setString(1, username);
+            try (ResultSet rs = pstmt.executeQuery()){
+                if(rs.next()){
+                    id = rs.getString("id");
+                }
+            }
+        }catch (SQLException e){
+            System.err.println("SQL Exception! Message: " + e.getMessage());
+        }
+        return id;
+
     }
 
 }

@@ -2,7 +2,6 @@ package at.technikum.apps.mtcg.service;
 
 import at.technikum.apps.mtcg.entity.Card;
 import at.technikum.apps.mtcg.repository.DatabaseCardRepository;
-import at.technikum.apps.mtcg.repository.MemoryCardRepository;
 import at.technikum.apps.mtcg.repository.CardRepository;
 
 import java.util.List;
@@ -29,6 +28,10 @@ public class CardService {
     public Card save(Card card) {
         card.setId(UUID.randomUUID().toString());
         return cardRepository.save(card);
+    }
+
+    public List<Card> findAllCardsFromUser(String user_id){
+        return cardRepository.findAllCardsFromUser(user_id);
     }
 
 

@@ -16,6 +16,8 @@ public class DatabaseCardRepository implements CardRepository {
     private final String FIND_ALL_SQL = "SELECT * FROM card";
     private final String SAVE = "INSERT INTO card(id, name, damage, package_id) VALUES(?, ?, ?, ?)";
 
+    private final String FIND_ALL_CARDS_FROM_USER = "SELECT c.id, c.name, c.damage, c.package_id FROM stack s JOIN card c ON s.card_id = c.id WHERE s.user_id = ?";
+
     private final Database database = Database.getInstance();
 
 
@@ -67,5 +69,31 @@ public class DatabaseCardRepository implements CardRepository {
         return card;
     }
 
+    @Override
+    public List<Card> findAllCardsFromUser(String user_id) {
+        List<Card> cardsFromUser = new ArrayList<>();
+        try (
+                Connection con = database.getConnection();
+                PreparedStatement pstmt = con.prepareStatement(FIND_ALL_CARDS_FROM_USER)
+        ) {
+            pstmt.setString(1, user_id);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                while (rs.next()) {
+                    Card card = new Card(
+                            rs.getString("id"),
+                            rs.getString("name"),
+                            rs.getString("damage"),
+                            rs.getString("package_id")
+                    );
+                    cardsFromUser.add(card);
+                }
+            }
+            } catch (SQLException e) {
+                System.err.println("SQL Exception! Message: " + e.getMessage());
+            }
+            return cardsFromUser;
+        }
 
-}
+
+    }
+

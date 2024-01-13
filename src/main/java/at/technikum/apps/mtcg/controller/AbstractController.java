@@ -81,7 +81,7 @@ public abstract class AbstractController {
         Response response = new Response();
         response.setStatus(httpStatus);
         response.setContentType(ContentType.APPLICATION_JSON);
-        response.setBody("{ \"Accepted\": \""+ HttpStatus.UNAUTHORIZED + "\"}");
+        response.setBody("{ \"Unauthorized\": \""+ HttpStatus.UNAUTHORIZED + "\"}");
 
         return response;
     }

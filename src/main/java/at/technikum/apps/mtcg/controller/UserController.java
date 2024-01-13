@@ -16,7 +16,7 @@ public class UserController extends AbstractController {
 
 
     public UserController() {
-        this.userService = new UserService(new DatabaseUserRepository());
+        this.userService = new UserService();
     }
 
     @Override
