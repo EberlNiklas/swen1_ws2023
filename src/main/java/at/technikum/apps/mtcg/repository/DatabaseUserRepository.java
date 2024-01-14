@@ -3,13 +3,14 @@ package at.technikum.apps.mtcg.repository;
 import at.technikum.apps.mtcg.data.Database;
 import at.technikum.apps.mtcg.entity.User;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
 
 //handles the communication with the user database
 public class DatabaseUserRepository implements UserRepository{
@@ -25,28 +26,6 @@ public class DatabaseUserRepository implements UserRepository{
 
     private final String GET_ID_FROM_USER = "SELECT id FROM users WHERE username = ?";
     private final Database database = Database.getInstance();
-
-
-    @Override
-    public boolean isValid(String username){
-        String foundUsername = null;
-
-        try(
-                Connection con = database.getConnection();
-                PreparedStatement pstmt = con.prepareStatement(TOKEN_SQL);
-                ){
-            pstmt.setString(1, username);
-
-            try (ResultSet rs = pstmt.executeQuery()){
-                if(rs.next()){
-                    foundUsername = rs.getString("username");
-                }
-            }
-        }catch (SQLException e){
-            throw new RuntimeException(e);
-        }
-        return foundUsername != null;
-    }
 
 
 
@@ -106,7 +85,7 @@ public class DatabaseUserRepository implements UserRepository{
                 PreparedStatement pstmt = con.prepareStatement(FIND_BY_USERNAME_AND_PASSWORD);
         ){
             pstmt.setString(1, username);
-            pstmt.setString(2, password);
+            pstmt.setString(2, securePassword(password));
 
             try (ResultSet rs = pstmt.executeQuery()) {
                 if(rs.next()) {
@@ -135,7 +114,7 @@ public class DatabaseUserRepository implements UserRepository{
         ) {
             pstmt.setString(1, user.getId());
             pstmt.setString(2, user.getUsername());
-            pstmt.setString(3, user.getPassword());
+            pstmt.setString(3, securePassword(user.getPassword()));
             pstmt.setInt(4, 100);
             pstmt.setInt(5, 20);
             pstmt.setString(6, user.getBio());
@@ -225,6 +204,11 @@ public class DatabaseUserRepository implements UserRepository{
         }
         return id;
 
+    }
+
+    public String securePassword(String password){
+        Base64.Encoder encoder = Base64.getEncoder();
+        return encoder.encodeToString(password.getBytes());
     }
 
 }

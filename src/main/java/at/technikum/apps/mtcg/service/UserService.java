@@ -22,10 +22,6 @@ public class UserService {
         return userRepository.findByUsername(username);
     }
 
-    public boolean isValid(String username){
-        return userRepository.isValid(username);
-    }
-
     public User update(User updatedUser, String username){
         return userRepository.update(updatedUser, username);
     }

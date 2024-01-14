@@ -9,8 +9,6 @@ import java.util.Optional;
 public interface UserRepository {
 
 
-    boolean isValid(String username);
-
     Optional<User> login(String username, String password);
 
     User update(User user, String username);
