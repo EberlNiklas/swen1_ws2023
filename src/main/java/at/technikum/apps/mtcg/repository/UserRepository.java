@@ -15,7 +15,7 @@ public interface UserRepository {
 
     User update(User user, String username);
 
-    int findStats(String username);
+    int getStats(String username);
 
     List<Integer> sortedPointsList();
 

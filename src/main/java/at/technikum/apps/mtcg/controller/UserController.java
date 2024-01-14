@@ -2,6 +2,7 @@ package at.technikum.apps.mtcg.controller;
 
 import at.technikum.apps.mtcg.entity.User;
 import at.technikum.apps.mtcg.repository.DatabaseUserRepository;
+import at.technikum.apps.mtcg.service.SessionService;
 import at.technikum.apps.mtcg.service.UserService;
 import at.technikum.server.http.HttpStatus;
 import at.technikum.server.http.Request;
@@ -14,9 +15,12 @@ public class UserController extends AbstractController {
 
     private final UserService userService;
 
+    private final SessionService sessionService;
+
 
     public UserController() {
         this.userService = new UserService();
+        this.sessionService = new SessionService();
     }
 
     @Override
@@ -86,13 +90,14 @@ public class UserController extends AbstractController {
     public Response readAll(Request request, String user) {
         String token = request.getHttpHeader();
         String username = extractUsername(token);
+        token = token.split(" ")[1];
 
         if (!user.equals(username)) {
             return badRequest(HttpStatus.BAD_REQUEST);
         }
 
-        if (!userService.isValid(username)) {
-            return notAllowed(HttpStatus.NOT_ALLOWED);
+        if (!sessionService.isLoggedIn(token)) {
+            return unauthorized(HttpStatus.UNAUTHORIZED);
         }
 
         User userFound = userService.findByUsername(username);
@@ -114,13 +119,14 @@ public class UserController extends AbstractController {
 
         String token = request.getHttpHeader();
         String username = extractUsername(token);
+        token = token.split(" ")[1];
 
         if (!user.equals(username)) {
             return badRequest(HttpStatus.BAD_REQUEST);
         }
 
-        if (!userService.isValid(username)) {
-            return notAllowed(HttpStatus.NOT_ALLOWED);
+        if (!sessionService.isLoggedIn(token)) {
+            return unauthorized(HttpStatus.UNAUTHORIZED);
         }
 
         ObjectMapper objectMapper = new ObjectMapper();

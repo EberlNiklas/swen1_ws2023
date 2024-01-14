@@ -170,7 +170,7 @@ public class DatabaseUserRepository implements UserRepository{
         return user;
     }
     @Override
-    public int findStats(String username) {
+    public int getStats(String username) {
 
         int stats = 0;
         try (

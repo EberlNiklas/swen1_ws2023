@@ -44,8 +44,8 @@ public class UserService {
     }
 
 
-    public int findStats(String username){
-        return userRepository.findStats(username);
+    public int getStats(String username){
+        return userRepository.getStats(username);
     }
 
     public List<Integer> sortedPointsList(){

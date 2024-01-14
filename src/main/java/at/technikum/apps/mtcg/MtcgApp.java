@@ -1,6 +1,7 @@
 package at.technikum.apps.mtcg;
 
 import at.technikum.apps.mtcg.controller.*;
+import at.technikum.apps.mtcg.entity.Stats;
 import at.technikum.server.ServerApplication;
 import at.technikum.server.http.ContentType;
 import at.technikum.server.http.HttpStatus;
@@ -23,6 +24,7 @@ public class MtcgApp implements ServerApplication {
         controllers.add(new PackageController());
         controllers.add(new TransactionController());
         controllers.add(new DeckController());
+        controllers.add(new StatsController());
     }
 
     @Override

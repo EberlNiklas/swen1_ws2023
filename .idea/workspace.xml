@@ -8,9 +8,14 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/da5f7cc3-08e5-47b8-b580-aa549d1fe0f5/storage_v2/_src_/database/mtcgdb.CXKRwA/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/cards_app.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/cards_app.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/MtcgApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/MtcgApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/StatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/StatsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/DatabaseUserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseUserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/at/technikum/apps/mtcg/repository/DatabaseUserRepository.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -99,7 +104,7 @@
       <updated>1705060521674</updated>
       <workItem from="1705060522747" duration="14498000" />
       <workItem from="1705148086937" duration="4842000" />
-      <workItem from="1705229163432" duration="2643000" />
+      <workItem from="1705229163432" duration="4590000" />
     </task>
     <servers />
   </component>
@@ -109,10 +114,14 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/UserController.java</url>
-          <line>37</line>
-          <option name="timeStamp" value="9" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/at/technikum/apps/mtcg/controller/DeckController.java</url>
+          <line>82</line>
+          <properties class="at.technikum.apps.mtcg.controller.DeckController" method="configure">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

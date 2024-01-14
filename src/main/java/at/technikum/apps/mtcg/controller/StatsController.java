@@ -1,11 +1,24 @@
 package at.technikum.apps.mtcg.controller;
 
+import at.technikum.apps.mtcg.service.SessionService;
+import at.technikum.apps.mtcg.service.UserService;
 import at.technikum.server.http.ContentType;
 import at.technikum.server.http.HttpStatus;
 import at.technikum.server.http.Request;
 import at.technikum.server.http.Response;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class StatsController implements Controller{
+public class StatsController extends AbstractController {
+
+    private final SessionService sessionService;
+
+    private final UserService userService;
+
+    public StatsController() {
+        this.sessionService = new SessionService();
+        this.userService = new UserService();
+    }
 
     @Override
     public boolean supports(String route) {
@@ -14,11 +27,36 @@ public class StatsController implements Controller{
 
     @Override
     public Response handle(Request request) {
-        Response response = new Response();
-        response.setStatus(HttpStatus.OK);
-        response.setContentType(ContentType.TEXT_PLAIN);
-        response.setBody("stats controller");
+        if (request.getRoute().startsWith("/stats")) {
+            if (request.getMethod().equals("GET")) {
+                return getUserStats(request);
+            }
+        }else {
+            return badRequest(HttpStatus.BAD_REQUEST);
+        }
+        return badRequest(HttpStatus.BAD_REQUEST);
+    }
 
-        return response;
+    public Response getUserStats(Request request){
+
+            String token = request.getHttpHeader();
+            String username = extractUsername(token);
+            token = token.split(" ")[1];
+
+            if(sessionService.isLoggedIn(token)){
+
+                int userStats = userService.getStats(username);
+
+                ObjectMapper objectMapper = new ObjectMapper();
+                String userJson;
+                try {
+                    userJson = objectMapper.writeValueAsString(userStats);
+                } catch (JsonProcessingException e) {
+                    return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+                }
+                return json(HttpStatus.OK, userJson);
+            }else {
+                return unauthorized(HttpStatus.UNAUTHORIZED);
+            }
     }
 }
