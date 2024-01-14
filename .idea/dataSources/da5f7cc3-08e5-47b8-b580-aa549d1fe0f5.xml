@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1554</IntrospectionStateNumber>
+      <IntrospectionStateNumber>4327</IntrospectionStateNumber>
       <ServerVersion>16.1</ServerVersion>
-      <StartupTime>1705148339</StartupTime>
+      <StartupTime>1705229189</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1399,7 +1399,7 @@ false posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>1554</IntrospectionStateNumber>
+      <IntrospectionStateNumber>4327</IntrospectionStateNumber>
       <ObjectId>16388</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4823,45 +4823,45 @@ false posixrules
     <schema id="264" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1554</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-01-13.17:49:46</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>4327</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-01-14.11:30:06</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <table id="265" parent="264" name="card">
-      <ObjectId>16982</ObjectId>
-      <StateNumber>1550</StateNumber>
+      <ObjectId>18615</ObjectId>
+      <StateNumber>4319</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="266" parent="264" name="deck">
-      <ObjectId>17011</ObjectId>
-      <StateNumber>1552</StateNumber>
+      <ObjectId>18644</ObjectId>
+      <StateNumber>4321</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="267" parent="264" name="deckcards">
-      <ObjectId>17023</ObjectId>
-      <StateNumber>1553</StateNumber>
+      <ObjectId>18656</ObjectId>
+      <StateNumber>4322</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="268" parent="264" name="packages">
-      <ObjectId>16970</ObjectId>
-      <StateNumber>1549</StateNumber>
+      <ObjectId>18603</ObjectId>
+      <StateNumber>4318</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="269" parent="264" name="stack">
-      <ObjectId>16994</ObjectId>
-      <StateNumber>1551</StateNumber>
+      <ObjectId>18627</ObjectId>
+      <StateNumber>4320</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="270" parent="264" name="users">
-      <ObjectId>16959</ObjectId>
-      <StateNumber>1549</StateNumber>
+      <ObjectId>18592</ObjectId>
+      <StateNumber>4326</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -4869,43 +4869,43 @@ false posixrules
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1550</StateNumber>
+      <StateNumber>4319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="272" parent="265" name="name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1550</StateNumber>
+      <StateNumber>4319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="273" parent="265" name="damage">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>1550</StateNumber>
+      <StateNumber>4319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="274" parent="265" name="package_id">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
-      <StateNumber>1550</StateNumber>
+      <StateNumber>4319</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <foreign-key id="275" parent="265" name="card_package_id_fkey">
       <ColNames>package_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16989</ObjectId>
+      <ObjectId>18622</ObjectId>
       <OnDelete>set-null</OnDelete>
-      <StateNumber>1550</StateNumber>
+      <StateNumber>4319</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16970</RefTableId>
+      <RefTableId>18603</RefTableId>
     </foreign-key>
     <index id="276" parent="265" name="card_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16987</ObjectId>
+      <ObjectId>18620</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1550</StateNumber>
+      <StateNumber>4319</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -4914,38 +4914,38 @@ false posixrules
     </index>
     <key id="277" parent="265" name="card_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16988</ObjectId>
+      <ObjectId>18621</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1550</StateNumber>
-      <UnderlyingIndexId>16987</UnderlyingIndexId>
+      <StateNumber>4319</StateNumber>
+      <UnderlyingIndexId>18620</UnderlyingIndexId>
     </key>
     <column id="278" parent="266" name="deck_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1552</StateNumber>
+      <StateNumber>4321</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="279" parent="266" name="user_id">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>1552</StateNumber>
+      <StateNumber>4321</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <foreign-key id="280" parent="266" name="deck_user_id_fkey">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17018</ObjectId>
-      <StateNumber>1552</StateNumber>
+      <ObjectId>18651</ObjectId>
+      <StateNumber>4321</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16959</RefTableId>
+      <RefTableId>18592</RefTableId>
     </foreign-key>
     <index id="281" parent="266" name="deck_pkey">
       <ColNames>deck_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17016</ObjectId>
+      <ObjectId>18649</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1552</StateNumber>
+      <StateNumber>4321</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -4954,48 +4954,48 @@ false posixrules
     </index>
     <key id="282" parent="266" name="deck_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17017</ObjectId>
+      <ObjectId>18650</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1552</StateNumber>
-      <UnderlyingIndexId>17016</UnderlyingIndexId>
+      <StateNumber>4321</StateNumber>
+      <UnderlyingIndexId>18649</UnderlyingIndexId>
     </key>
     <column id="283" parent="267" name="deck_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1553</StateNumber>
+      <StateNumber>4322</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="284" parent="267" name="card_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1553</StateNumber>
+      <StateNumber>4322</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <foreign-key id="285" parent="267" name="deckcards_deck_id_fkey">
       <ColNames>deck_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17030</ObjectId>
-      <StateNumber>1553</StateNumber>
+      <ObjectId>18663</ObjectId>
+      <StateNumber>4322</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>17011</RefTableId>
+      <RefTableId>18644</RefTableId>
     </foreign-key>
     <foreign-key id="286" parent="267" name="deckcards_card_id_fkey">
       <ColNames>card_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17035</ObjectId>
-      <StateNumber>1553</StateNumber>
+      <ObjectId>18668</ObjectId>
+      <StateNumber>4322</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16982</RefTableId>
+      <RefTableId>18615</RefTableId>
     </foreign-key>
     <index id="287" parent="267" name="deckcards_pkey">
       <ColNames>deck_id
 card_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17028</ObjectId>
+      <ObjectId>18661</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1553</StateNumber>
+      <StateNumber>4322</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>100
@@ -5007,38 +5007,38 @@ pg_catalog</CollationParentNames>
     </index>
     <key id="288" parent="267" name="deckcards_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17029</ObjectId>
+      <ObjectId>18662</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1553</StateNumber>
-      <UnderlyingIndexId>17028</UnderlyingIndexId>
+      <StateNumber>4322</StateNumber>
+      <UnderlyingIndexId>18661</UnderlyingIndexId>
     </key>
     <column id="289" parent="268" name="id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1549</StateNumber>
+      <StateNumber>4318</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="290" parent="268" name="user_id">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>1549</StateNumber>
+      <StateNumber>4318</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <foreign-key id="291" parent="268" name="packages_user_id_fkey">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16977</ObjectId>
-      <StateNumber>1549</StateNumber>
+      <ObjectId>18610</ObjectId>
+      <StateNumber>4318</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16959</RefTableId>
+      <RefTableId>18592</RefTableId>
     </foreign-key>
     <index id="292" parent="268" name="packages_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16975</ObjectId>
+      <ObjectId>18608</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1549</StateNumber>
+      <StateNumber>4318</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
@@ -5047,50 +5047,50 @@ pg_catalog</CollationParentNames>
     </index>
     <key id="293" parent="268" name="packages_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16976</ObjectId>
+      <ObjectId>18609</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1549</StateNumber>
-      <UnderlyingIndexId>16975</UnderlyingIndexId>
+      <StateNumber>4318</StateNumber>
+      <UnderlyingIndexId>18608</UnderlyingIndexId>
     </key>
     <column id="294" parent="269" name="card_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1551</StateNumber>
+      <StateNumber>4320</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="295" parent="269" name="user_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1551</StateNumber>
+      <StateNumber>4320</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <foreign-key id="296" parent="269" name="stack_card_id_fkey">
       <ColNames>card_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17001</ObjectId>
+      <ObjectId>18634</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>1551</StateNumber>
+      <StateNumber>4320</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16982</RefTableId>
+      <RefTableId>18615</RefTableId>
     </foreign-key>
     <foreign-key id="297" parent="269" name="stack_user_id_fkey">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17006</ObjectId>
+      <ObjectId>18639</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>1551</StateNumber>
+      <StateNumber>4320</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>16959</RefTableId>
+      <RefTableId>18592</RefTableId>
     </foreign-key>
     <index id="298" parent="269" name="stack_pkey">
       <ColNames>card_id
 user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16999</ObjectId>
+      <ObjectId>18632</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1551</StateNumber>
+      <StateNumber>4320</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>100
@@ -5102,81 +5102,102 @@ pg_catalog</CollationParentNames>
     </index>
     <key id="299" parent="269" name="stack_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>17000</ObjectId>
+      <ObjectId>18633</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1551</StateNumber>
-      <UnderlyingIndexId>16999</UnderlyingIndexId>
+      <StateNumber>4320</StateNumber>
+      <UnderlyingIndexId>18632</UnderlyingIndexId>
     </key>
     <column id="300" parent="270" name="id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1548</StateNumber>
+      <StateNumber>4317</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="301" parent="270" name="username">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1548</StateNumber>
+      <StateNumber>4317</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="302" parent="270" name="password">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>1548</StateNumber>
+      <StateNumber>4317</StateNumber>
       <TypeId>1043</TypeId>
     </column>
     <column id="303" parent="270" name="points">
       <DasType>integer|0s</DasType>
       <DefaultExpression>100</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>1548</StateNumber>
+      <StateNumber>4317</StateNumber>
       <TypeId>23</TypeId>
     </column>
     <column id="304" parent="270" name="coins">
       <DasType>integer|0s</DasType>
       <DefaultExpression>20</DefaultExpression>
       <Position>5</Position>
-      <StateNumber>1548</StateNumber>
+      <StateNumber>4317</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="305" parent="270" name="users_pkey">
+    <column id="305" parent="270" name="bio">
+      <DasType>varchar(255)|0s</DasType>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+      <Position>6</Position>
+      <StateNumber>4324</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="306" parent="270" name="image">
+      <DasType>varchar(20)|0s</DasType>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+      <Position>7</Position>
+      <StateNumber>4325</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="307" parent="270" name="name">
+      <DasType>varchar(20)|0s</DasType>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+      <Position>8</Position>
+      <StateNumber>4326</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="308" parent="270" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16966</ObjectId>
+      <ObjectId>18599</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1548</StateNumber>
+      <StateNumber>4317</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="306" parent="270" name="users_username_key">
+    <index id="309" parent="270" name="users_username_key">
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16968</ObjectId>
-      <StateNumber>1548</StateNumber>
+      <ObjectId>18601</ObjectId>
+      <StateNumber>4317</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="307" parent="270" name="users_pkey">
+    <key id="310" parent="270" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16967</ObjectId>
+      <ObjectId>18600</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1548</StateNumber>
-      <UnderlyingIndexId>16966</UnderlyingIndexId>
+      <StateNumber>4317</StateNumber>
+      <UnderlyingIndexId>18599</UnderlyingIndexId>
     </key>
-    <key id="308" parent="270" name="users_username_key">
+    <key id="311" parent="270" name="users_username_key">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16969</ObjectId>
-      <StateNumber>1548</StateNumber>
-      <UnderlyingIndexId>16968</UnderlyingIndexId>
+      <ObjectId>18602</ObjectId>
+      <StateNumber>4317</StateNumber>
+      <UnderlyingIndexId>18601</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

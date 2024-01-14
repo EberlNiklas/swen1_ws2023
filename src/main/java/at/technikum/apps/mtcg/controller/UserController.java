@@ -21,12 +21,12 @@ public class UserController extends AbstractController {
 
     @Override
     public boolean supports(String route) {
-        return route.equals("/users");
+        return route.startsWith("/users");
     }
 
     @Override
     public Response handle(Request request) {
-        if (request.getRoute().equals("/users")) {
+        if (request.getRoute().startsWith("/users")) {
 
             if (request.getMethod().equals("POST")) {
                 return create(request);
@@ -104,7 +104,7 @@ public class UserController extends AbstractController {
         } catch (JsonProcessingException e) {
             return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+        return json(HttpStatus.OK, userJson);
     }
 
     public Response update(Request request, String user) {

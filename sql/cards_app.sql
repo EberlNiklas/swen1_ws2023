@@ -45,6 +45,12 @@ CREATE TABLE IF NOT EXISTS deckcards (
     FOREIGN KEY (card_id) REFERENCES card(id)
 );
 
+ALTER TABLE users ADD COLUMN bio VARCHAR(255) DEFAULT NULL;
+
+ALTER TABLE users ADD COLUMN image VARCHAR(20) DEFAULT NULL;
+
+ALTER TABLE users ADD COLUMN name VARCHAR(20) DEFAULT NULL;
+
 
 DROP TABLE card, packages, users, stack, deck, deckcards
 
