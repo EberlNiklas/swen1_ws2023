@@ -48,8 +48,8 @@ public class UserService {
         return userRepository.getStats(username);
     }
 
-    public List<Integer> sortedPointsList(){
-        return userRepository.sortedPointsList();
+    public List<Integer> getScoreboard(){
+        return userRepository.getScoreboard();
     }
 
     public String findUserString(String username){

@@ -17,7 +17,7 @@ public interface UserRepository {
 
     int getStats(String username);
 
-    List<Integer> sortedPointsList();
+    List<Integer> getScoreboard();
 
     User findByUsername(String username);
 

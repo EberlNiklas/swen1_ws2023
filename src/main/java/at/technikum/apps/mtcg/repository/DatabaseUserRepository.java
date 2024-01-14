@@ -189,7 +189,7 @@ public class DatabaseUserRepository implements UserRepository{
         return stats;
     }
 
-    public List<Integer> sortedPointsList() {
+    public List<Integer> getScoreboard() {
         List<Integer> list = new ArrayList<>();
         try (
                 Connection con = database.getConnection();
