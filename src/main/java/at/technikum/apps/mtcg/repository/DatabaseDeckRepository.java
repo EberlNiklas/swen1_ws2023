@@ -25,7 +25,6 @@ public class DatabaseDeckRepository implements DeckRepository {
 
     private final String SAVE_CARDS_IN_DECK = "INSERT INTO deckcards(card_id, deck_id) VALUES (?, ?)";
     private final Database database = Database.getInstance();
-    private final CardRepository cardRepository = new DatabaseCardRepository();
 
     @Override
     public void save(Deck deck, String user_id) {

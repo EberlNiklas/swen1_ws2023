@@ -12,7 +12,7 @@ public abstract class AbstractController {
 
     public abstract Response handle(Request request);
 
-    private SessionService sessionService = new SessionService();
+    private final SessionService sessionService = new SessionService();
 
     protected Response status(HttpStatus httpStatus) {
         Response response = new Response();
@@ -32,54 +32,54 @@ public abstract class AbstractController {
         return response;
     }
 
-    protected Response ok(HttpStatus httpStatus) {
+    protected Response ok() {
         Response response = new Response();
-        response.setStatus(httpStatus);
+        response.setStatus(HttpStatus.OK);
         response.setContentType(ContentType.APPLICATION_JSON);
         response.setBody("{ \"ok\": \""+ HttpStatus.OK + "\"}");
 
         return response;
     }
 
-    protected Response notAllowed(HttpStatus httpStatus) {
+    protected Response notAllowed() {
         Response response = new Response();
-        response.setStatus(httpStatus);
+        response.setStatus(HttpStatus.NOT_ALLOWED);
         response.setContentType(ContentType.APPLICATION_JSON);
         response.setBody("{ \"Not Allowed\": \""+ HttpStatus.NOT_ALLOWED + "\"}");
 
         return response;
     }
 
-    protected Response badRequest(HttpStatus httpStatus) {
+    protected Response badRequest() {
         Response response = new Response();
-        response.setStatus(httpStatus);
+        response.setStatus(HttpStatus.BAD_REQUEST);
         response.setContentType(ContentType.APPLICATION_JSON);
         response.setBody("{ \"Bad Request\": \""+ HttpStatus.BAD_REQUEST + "\"}");
 
         return response;
     }
 
-    protected Response accepted(HttpStatus httpStatus) {
+    protected Response accepted() {
         Response response = new Response();
-        response.setStatus(httpStatus);
+        response.setStatus(HttpStatus.ACCEPTED);
         response.setContentType(ContentType.APPLICATION_JSON);
         response.setBody("{ \"Accepted\": \""+ HttpStatus.ACCEPTED + "\"}");
 
         return response;
     }
 
-    protected Response notFound(HttpStatus httpStatus) {
+    protected Response notFound() {
         Response response = new Response();
-        response.setStatus(httpStatus);
+        response.setStatus(HttpStatus.NOT_FOUND);
         response.setContentType(ContentType.APPLICATION_JSON);
         response.setBody("{ \"Not Found\": \""+ HttpStatus.NOT_FOUND + "\"}");
 
         return response;
     }
 
-    protected Response unauthorized(HttpStatus httpStatus) {
+    protected Response unauthorized() {
         Response response = new Response();
-        response.setStatus(httpStatus);
+        response.setStatus(HttpStatus.UNAUTHORIZED);
         response.setContentType(ContentType.APPLICATION_JSON);
         response.setBody("{ \"Unauthorized\": \""+ HttpStatus.UNAUTHORIZED + "\"}");
 
@@ -95,9 +95,9 @@ public abstract class AbstractController {
         return response;
     }
 
-    protected Response internalServerError(HttpStatus httpStatus) {
+    protected Response internalServerError() {
         Response response = new Response();
-        response.setStatus(httpStatus);
+        response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
         response.setContentType(ContentType.APPLICATION_JSON);
         response.setBody("{ \"Bad Request\": \""+ HttpStatus.INTERNAL_SERVER_ERROR + "\"}");
 

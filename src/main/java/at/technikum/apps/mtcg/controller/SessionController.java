@@ -41,18 +41,18 @@ public class SessionController extends AbstractController{
                 return userLogin(request, username, password);
             }
         }
-        return notAllowed(HttpStatus.NOT_ALLOWED);
+        return notAllowed();
     }
 
     public Response userLogin(Request request, String username, String password){
         if(request.getContentType().equals("application/json")){
             Optional<User> user = userService.login(username, password);
             if(user.isEmpty()){
-                return unauthorized(HttpStatus.UNAUTHORIZED);
+                return unauthorized();
             }
             return json(HttpStatus.ACCEPTED, "{\"Token\":\"" + sessionService.generateToken(username) + "\"}");
         }
-        return badRequest(HttpStatus.BAD_REQUEST);
+        return badRequest();
     }
 
 

@@ -43,9 +43,9 @@ public class DeckController extends AbstractController {
                 case "PUT":
                     return configure(request);
             }
-            return notAllowed(HttpStatus.NOT_ALLOWED);
+            return notAllowed();
         }
-        return notAllowed(HttpStatus.NOT_ALLOWED);
+        return notAllowed();
     }
 
     public Response readAll(Request request) {
@@ -81,11 +81,11 @@ public class DeckController extends AbstractController {
             try {
                 deckJson = objectMapper.writeValueAsString(cardsInDeck);
             } catch (JsonProcessingException e) {
-                return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+                return internalServerError();
             }
             return json(HttpStatus.OK, deckJson);
         }else{
-            return notAllowed(HttpStatus.NOT_ALLOWED);
+            return notAllowed();
         }
     }
 
@@ -107,7 +107,7 @@ public class DeckController extends AbstractController {
                 try {
                     cardsToPutInDeck = objectMapper.readValue(request.getBody(), new TypeReference<List<String>>(){});
                 } catch (JsonProcessingException e) {
-                    return badRequest(HttpStatus.BAD_REQUEST);
+                    return badRequest();
                 }
 
                 if(cardsToPutInDeck.size() != 4){
@@ -121,14 +121,14 @@ public class DeckController extends AbstractController {
                 List<String> cards = deckService.findAll(deck_id);
                 if(cards.isEmpty()){
                     deckService.saveCardsInDeck(cardsToPutInDeck, deck_id);
-                    return ok(HttpStatus.OK);
+                    return ok();
                 }
                 deckService.updateCardsInDeck(cardsToPutInDeck, deck_id);
             }else{
-                return notAllowed(HttpStatus.NOT_ALLOWED);
+                return notAllowed();
             }
         }
-        return ok(HttpStatus.OK);
+        return ok();
     }
 }
 

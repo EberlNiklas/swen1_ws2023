@@ -26,12 +26,12 @@ public class PackageController extends AbstractController{
         if (request.getMethod().equals("POST")){
             return createPackage(request);
         }
-        return notAllowed(HttpStatus.NOT_ALLOWED);
+        return notAllowed();
     }
 
     public Response createPackage(Request request){
         if (!isLoggedInAsAdmin(request)){
-            return unauthorized(HttpStatus.UNAUTHORIZED);
+            return unauthorized();
         }
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
@@ -43,7 +43,7 @@ public class PackageController extends AbstractController{
             return json(HttpStatus.CREATED, pkgJson);
         } catch (JsonProcessingException e) {
             System.out.println(e);
-            return badRequest(HttpStatus.BAD_REQUEST);
+            return badRequest();
         }
     }
 }

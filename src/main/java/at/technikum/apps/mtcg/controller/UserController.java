@@ -45,9 +45,9 @@ public class UserController extends AbstractController {
                 case "PUT":
                     return update(request, user);
             }
-            return notAllowed(HttpStatus.NOT_ALLOWED);
+            return notAllowed();
         }
-        return notAllowed(HttpStatus.NOT_ALLOWED);
+        return notAllowed();
 
     }
 
@@ -55,7 +55,7 @@ public class UserController extends AbstractController {
     public Response create(Request request) {
 
         if (!request.getContentType().equals("application/json")) {
-            return badRequest(HttpStatus.BAD_REQUEST);
+            return badRequest();
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -64,24 +64,24 @@ public class UserController extends AbstractController {
         try {
             user = objectMapper.readValue(request.getBody(), User.class);
         } catch (JsonProcessingException e) {
-            return badRequest(HttpStatus.BAD_REQUEST);
+            return badRequest();
         }
 
         String checkIfExists = userService.findUserString(user.getUsername());
         if (checkIfExists != null) {
-            return badRequest(HttpStatus.BAD_REQUEST);
+            return badRequest();
         }
         user = userService.registration(user);
 
         if (user == null) {
-            return notFound(HttpStatus.NOT_FOUND);
+            return notFound();
         }
 
         String userJson;
         try {
             userJson = objectMapper.writeValueAsString(user);
         } catch (JsonProcessingException e) {
-            return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+            return internalServerError();
         }
 
         return json(HttpStatus.CREATED, userJson);
@@ -93,11 +93,11 @@ public class UserController extends AbstractController {
         token = token.split(" ")[1];
 
         if (!user.equals(username)) {
-            return badRequest(HttpStatus.BAD_REQUEST);
+            return badRequest();
         }
 
         if (!sessionService.isLoggedIn(token)) {
-            return unauthorized(HttpStatus.UNAUTHORIZED);
+            return unauthorized();
         }
 
         User userFound = userService.findByUsername(username);
@@ -107,14 +107,14 @@ public class UserController extends AbstractController {
         try {
             userJson = objectMapper.writeValueAsString(userFound);
         } catch (JsonProcessingException e) {
-            return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+            return internalServerError();
         }
         return json(HttpStatus.OK, userJson);
     }
 
     public Response update(Request request, String user) {
         if (!request.getContentType().equals("application/json")) {
-            return badRequest(HttpStatus.BAD_REQUEST);
+            return badRequest();
         }
 
         String token = request.getHttpHeader();
@@ -122,11 +122,11 @@ public class UserController extends AbstractController {
         token = token.split(" ")[1];
 
         if (!user.equals(username)) {
-            return badRequest(HttpStatus.BAD_REQUEST);
+            return badRequest();
         }
 
         if (!sessionService.isLoggedIn(token)) {
-            return unauthorized(HttpStatus.UNAUTHORIZED);
+            return unauthorized();
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
@@ -136,7 +136,7 @@ public class UserController extends AbstractController {
         try {
             updatedUser = objectMapper.readValue(request.getBody(), User.class);
         } catch (JsonProcessingException e) {
-            return badRequest(HttpStatus.BAD_REQUEST);
+            return badRequest();
         }
 
         User player = userService.update(updatedUser, username);
@@ -145,7 +145,7 @@ public class UserController extends AbstractController {
         try {
             userJson = objectMapper.writeValueAsString(player);
         } catch (JsonProcessingException e) {
-            return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+            return internalServerError();
         }
         return json(HttpStatus.OK, userJson);
     }

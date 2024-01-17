@@ -32,9 +32,9 @@ public class StatsController extends AbstractController {
                 return getUserStats(request);
             }
         }else {
-            return badRequest(HttpStatus.BAD_REQUEST);
+            return badRequest();
         }
-        return badRequest(HttpStatus.BAD_REQUEST);
+        return badRequest();
     }
 
     public Response getUserStats(Request request){
@@ -52,11 +52,11 @@ public class StatsController extends AbstractController {
                 try {
                     userJson = objectMapper.writeValueAsString(userStats);
                 } catch (JsonProcessingException e) {
-                    return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+                    return internalServerError();
                 }
                 return json(HttpStatus.OK, userJson);
             }else {
-                return unauthorized(HttpStatus.UNAUTHORIZED);
+                return unauthorized();
             }
     }
 }

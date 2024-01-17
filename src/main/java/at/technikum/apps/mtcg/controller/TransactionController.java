@@ -34,9 +34,9 @@ public class TransactionController extends AbstractController {
             if (request.getMethod().equals("POST")) {
                 return buyPackage(request);
             }
-            return notAllowed(HttpStatus.NOT_ALLOWED);
+            return notAllowed();
         }
-        return notAllowed(HttpStatus.NOT_ALLOWED);
+        return notAllowed();
     }
 
     public Response buyPackage(Request request) {
@@ -67,15 +67,15 @@ public class TransactionController extends AbstractController {
                     packageService.updateCoins(username, costs);
                     packageService.delete(package_id);
 
-                    return ok(HttpStatus.OK);
+                    return ok();
                 } else {
                     return json(HttpStatus.BAD_REQUEST, "User has no coins left!");
                 }
             } else {
-                return notAllowed(HttpStatus.NOT_ALLOWED);
+                return notAllowed();
             }
         }
-        return badRequest(HttpStatus.BAD_REQUEST);
+        return badRequest();
     }
 
 }

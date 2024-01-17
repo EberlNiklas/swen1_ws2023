@@ -7,23 +7,26 @@ public class Card {
 
     private String name;
 
-    private String damage;
+    private int damage;
 
     private String packageId;
+
+    private String type;
 
     public Card(){
 
     }
 
-    public Card(String id, String name, String damage) {
-        this(id,name, damage,null);
+    public Card(String id, String name, int damage, String type) {
+        this(id,name, damage,null, type);
     }
 
-    public Card(String id, String name, String damage, String packageId) {
+    public Card(String id, String name, int damage, String packageId, String type) {
         this.id = id;
         this.name = name;
         this.damage = damage;
         this.packageId = packageId;
+        this.type = type;
     }
 
     public String getId() {
@@ -42,11 +45,11 @@ public class Card {
         this.name = name;
     }
 
-    public String getDamage() {
+    public int getDamage() {
         return damage;
     }
 
-    public void setDamage(String damage) {
+    public void setDamage(int damage) {
         this.damage = damage;
     }
 
@@ -56,6 +59,14 @@ public class Card {
 
     public void setPackageId(String packageId) {
         this.packageId = packageId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     @Override

@@ -35,9 +35,9 @@ public class ScoreboardController extends AbstractController{
                 return getScoreboard(request);
             }
         }else {
-            return badRequest(HttpStatus.BAD_REQUEST);
+            return badRequest();
         }
-        return badRequest(HttpStatus.BAD_REQUEST);
+        return badRequest();
     }
 
     public Response getScoreboard(Request request){
@@ -56,11 +56,11 @@ public class ScoreboardController extends AbstractController{
             try {
                 userJson = objectMapper.writeValueAsString(scoreboard);
             } catch (JsonProcessingException e) {
-                return internalServerError(HttpStatus.INTERNAL_SERVER_ERROR);
+                return internalServerError();
             }
             return json(HttpStatus.OK, userJson);
         }else {
-            return unauthorized(HttpStatus.UNAUTHORIZED);
+            return unauthorized();
         }
     }
 }

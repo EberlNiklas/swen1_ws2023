@@ -16,9 +16,9 @@ public class DatabaseCardRepository implements CardRepository {
     private final String FIND_ALL_SQL = "SELECT * FROM card";
 
     private final String FIND_CARD = "SELECT * FROM card where id = ?";
-    private final String SAVE = "INSERT INTO card(id, name, damage, package_id) VALUES(?, ?, ?, ?)";
+    private final String SAVE = "INSERT INTO card(id, name, damage, package_id, type) VALUES(?, ?, ?, ?, ?)";
 
-    private final String FIND_ALL_CARDS_FROM_USER = "SELECT c.id, c.name, c.damage, c.package_id FROM stack s JOIN card c ON s.card_id = c.id WHERE s.user_id = ?";
+    private final String FIND_ALL_CARDS_FROM_USER = "SELECT c.id, c.name, c.damage, c.package_id, c.type FROM stack s JOIN card c ON s.card_id = c.id WHERE s.user_id = ?";
 
     private final Database database = Database.getInstance();
 
@@ -36,16 +36,16 @@ public class DatabaseCardRepository implements CardRepository {
                 Card card = new Card(
                         rs.getString("id"),
                         rs.getString("name"),
-                        rs.getString("damage"),
-                        rs.getString("package_id")
+                        rs.getInt("damage"),
+                        rs.getString("package_id"),
+                        rs.getString("type")
                 );
                 cards.add(card);
             }
-
-            return cards;
         } catch (SQLException e) {
-            return cards;
+            System.err.println("SQL Exception! Message: " + e.getMessage());
         }
+        return cards;
     }
 
     @Override
@@ -60,8 +60,9 @@ public class DatabaseCardRepository implements CardRepository {
             if(rs.next()) {
                 card.setId(rs.getString("id"));
                 card.setName(rs.getString("name"));
-                card.setDamage(rs.getString("damage"));
+                card.setDamage(rs.getInt("damage"));
                 card.setPackageId(rs.getString("package_id"));
+                card.setType(rs.getString("type"));
             }
         } catch (SQLException e) {
             System.err.println("SQL Exception! Message: " + e.getMessage());
@@ -77,8 +78,13 @@ public class DatabaseCardRepository implements CardRepository {
         ) {
             pstmt.setString(1, card.getId());
             pstmt.setString(2, card.getName());
-            pstmt.setString(3, card.getDamage());
+            pstmt.setInt(3, card.getDamage());
             pstmt.setString(4, card.getPackageId());
+            if(card.getName().contains("Spell")){
+                pstmt.setString(5, "Spell");
+            }else{
+                pstmt.setString(5, "Monster");
+            }
             pstmt.execute();
         } catch (SQLException e) {
             System.err.println("SQL Exception! Message: " + e.getMessage());
@@ -100,8 +106,9 @@ public class DatabaseCardRepository implements CardRepository {
                     Card card = new Card(
                             rs.getString("id"),
                             rs.getString("name"),
-                            rs.getString("damage"),
-                            rs.getString("package_id")
+                            rs.getInt("damage"),
+                            rs.getString("package_id"),
+                            rs.getString("type")
                     );
                     cardsFromUser.add(card);
                 }
