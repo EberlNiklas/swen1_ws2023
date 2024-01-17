@@ -14,6 +14,8 @@ import java.util.Optional;
 public class DatabaseCardRepository implements CardRepository {
 
     private final String FIND_ALL_SQL = "SELECT * FROM card";
+
+    private final String FIND_CARD = "SELECT * FROM card where id = ?";
     private final String SAVE = "INSERT INTO card(id, name, damage, package_id) VALUES(?, ?, ?, ?)";
 
     private final String FIND_ALL_CARDS_FROM_USER = "SELECT c.id, c.name, c.damage, c.package_id FROM stack s JOIN card c ON s.card_id = c.id WHERE s.user_id = ?";
@@ -47,8 +49,24 @@ public class DatabaseCardRepository implements CardRepository {
     }
 
     @Override
-    public Optional<Card> find(int id) {
-        return Optional.empty();
+    public Card find(String id) {
+        Card card = new Card();
+        try (
+                Connection con = database.getConnection();
+                PreparedStatement pstmt = con.prepareStatement(FIND_CARD);
+        ) {
+            pstmt.setString(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()) {
+                card.setId(rs.getString("id"));
+                card.setName(rs.getString("name"));
+                card.setDamage(rs.getString("damage"));
+                card.setPackageId(rs.getString("package_id"));
+            }
+        } catch (SQLException e) {
+            System.err.println("SQL Exception! Message: " + e.getMessage());
+        }
+        return card;
     }
 
     @Override
@@ -63,7 +81,7 @@ public class DatabaseCardRepository implements CardRepository {
             pstmt.setString(4, card.getPackageId());
             pstmt.execute();
         } catch (SQLException e) {
-            // THOUGHT: how do i handle exceptions (hint: look at the TaskApp)
+            System.err.println("SQL Exception! Message: " + e.getMessage());
         }
 
         return card;

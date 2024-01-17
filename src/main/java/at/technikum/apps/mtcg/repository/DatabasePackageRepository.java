@@ -21,7 +21,7 @@ public class DatabasePackageRepository implements PackageRepository{
     private final String GET_COINS_FROM_USER = "SELECT coins FROM users WHERE username = ?";
 
     private final String GET_ID_FROM_USER = "SELECT id FROM users WHERE username = ?";
-    private final String GET_ID_FROM_PACKAGE = "SELECT * FROM packages ORDER BY RANDOM() LIMIT 1";
+    private final String GET_ID_FROM_PACKAGE = "SELECT * FROM packages LIMIT 1";
 
     private final String GET_CARDS = "SELECT id FROM card WHERE package_id = ?";
 

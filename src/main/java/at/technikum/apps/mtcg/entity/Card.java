@@ -11,7 +11,6 @@ public class Card {
 
     private String packageId;
 
-    //TODO Element type?
     public Card(){
 
     }
@@ -57,5 +56,15 @@ public class Card {
 
     public void setPackageId(String packageId) {
         this.packageId = packageId;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", damage='" + damage + '\'' +
+                ", packageId='" + packageId + '\'' +
+                '}';
     }
 }

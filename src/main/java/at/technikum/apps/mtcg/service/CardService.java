@@ -21,8 +21,8 @@ public class CardService {
         return cardRepository.findAll();
     }
 
-    public Optional<Card> find(int id) {
-        return Optional.empty();
+    public Card find(String id) {
+        return cardRepository.find(id);
     }
 
     public Card save(Card card) {

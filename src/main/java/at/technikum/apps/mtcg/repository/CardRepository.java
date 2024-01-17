@@ -9,7 +9,7 @@ public interface CardRepository {
 
     List<Card> findAll();
 
-    Optional<Card> find(int id);
+    Card find(String id);
 
     Card save(Card card);
 

@@ -21,7 +21,7 @@ public class DatabaseDeckRepository implements DeckRepository {
 
     private final String GET_ID_FROM_USER = "SELECT id FROM users WHERE username = ?";
 
-    private final String CHECK_IF_CARDS_MATCH_USER = "SELECT card_id FROM stack WHERE user_id = ? and card_id IN (?, ?, ?, ?)";
+    private final String CHECK_IF_CARDS_MATCH_USER = "SELECT COUNT(*) FROM stack WHERE user_id = ? and card_id IN (?, ?, ?, ?)";
 
     private final String SAVE_CARDS_IN_DECK = "INSERT INTO deckcards(card_id, deck_id) VALUES (?, ?)";
     private final Database database = Database.getInstance();
@@ -118,9 +118,11 @@ public class DatabaseDeckRepository implements DeckRepository {
                 pstmt.setString(i + 2, cards.get(i));
             }
             try (ResultSet rs = pstmt.executeQuery()) {
-                return !rs.next();
+            return rs.next() // Get result row
+                    && (rs.getInt(1) == cards.size()); // Check if all cards belong to user
             }
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new RuntimeException();
         }
     }
