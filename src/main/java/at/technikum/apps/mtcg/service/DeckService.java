@@ -11,8 +11,8 @@ public class DeckService {
 
     private final DeckRepository deckRepository;
 
-    public DeckService() {
-        this.deckRepository = new DatabaseDeckRepository();
+    public DeckService(DeckRepository deckRepository) {
+        this.deckRepository = deckRepository;
     }
 
     public void save(Deck deck, String user_id){
@@ -42,5 +42,9 @@ public class DeckService {
 
     public void updateCardsInDeck(List<String> cards, String deck_id){
         deckRepository.updateCardsInDeck(cards, deck_id);
+    }
+
+    public boolean cardIsAvailableForTrade(String cardId){
+        return deckRepository.cardIsAvailableForTrade(cardId);
     }
 }

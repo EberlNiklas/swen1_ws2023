@@ -22,10 +22,10 @@ public class TradingController extends AbstractController{
 
     private final UserService userService;
 
-    public TradingController(){
-        this.sessionService = new SessionService();
-        this.tradingService = new TradingService();
-        this.userService = new UserService();
+    public TradingController(SessionService sessionService, TradingService tradingService, UserService userService){
+        this.sessionService = sessionService;
+        this.tradingService = tradingService;
+        this.userService = userService;
     }
 
     @Override

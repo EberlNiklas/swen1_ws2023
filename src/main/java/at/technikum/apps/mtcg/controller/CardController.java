@@ -23,10 +23,10 @@ public class CardController extends AbstractController {
 
     private final SessionService sessionService;
 
-    public CardController() {
-        this.cardService = new CardService();
-        this.userService = new UserService();
-        this.sessionService = new SessionService();
+    public CardController(CardService cardService, UserService userService, SessionService sessionService) {
+        this.cardService = cardService;
+        this.userService = userService;
+        this.sessionService = sessionService;
     }
 
     @Override

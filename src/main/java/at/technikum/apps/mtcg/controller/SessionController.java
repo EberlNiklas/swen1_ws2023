@@ -20,9 +20,9 @@ public class SessionController extends AbstractController{
     private final SessionService sessionService;
 
 
-    public SessionController() {
-        this.userService = new UserService();
-        this.sessionService = new SessionService();
+    public SessionController(UserService userService, SessionService sessionService) {
+        this.userService = userService;
+        this.sessionService = sessionService;
     }
 
     @Override

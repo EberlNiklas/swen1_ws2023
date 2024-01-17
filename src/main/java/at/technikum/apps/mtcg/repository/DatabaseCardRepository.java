@@ -16,9 +16,9 @@ public class DatabaseCardRepository implements CardRepository {
     private final String FIND_ALL_SQL = "SELECT * FROM card";
 
     private final String FIND_CARD = "SELECT * FROM card where id = ?";
-    private final String SAVE = "INSERT INTO card(id, name, damage, package_id, type) VALUES(?, ?, ?, ?, ?)";
+    private final String SAVE = "INSERT INTO card(id, name, damage, package_id, elementType, type) VALUES(?, ?, ?, ?, ?, ?)";
 
-    private final String FIND_ALL_CARDS_FROM_USER = "SELECT c.id, c.name, c.damage, c.package_id, c.type FROM stack s JOIN card c ON s.card_id = c.id WHERE s.user_id = ?";
+    private final String FIND_ALL_CARDS_FROM_USER = "SELECT c.id, c.name, c.damage, c.package_id, c.elementType, c.type FROM stack s JOIN card c ON s.card_id = c.id WHERE s.user_id = ?";
 
     private final Database database = Database.getInstance();
 
@@ -38,6 +38,7 @@ public class DatabaseCardRepository implements CardRepository {
                         rs.getString("name"),
                         rs.getInt("damage"),
                         rs.getString("package_id"),
+                        rs.getString("elementType"),
                         rs.getString("type")
                 );
                 cards.add(card);
@@ -62,6 +63,7 @@ public class DatabaseCardRepository implements CardRepository {
                 card.setName(rs.getString("name"));
                 card.setDamage(rs.getInt("damage"));
                 card.setPackageId(rs.getString("package_id"));
+                card.setElementType(rs.getString("elementType"));
                 card.setType(rs.getString("type"));
             }
         } catch (SQLException e) {
@@ -80,10 +82,17 @@ public class DatabaseCardRepository implements CardRepository {
             pstmt.setString(2, card.getName());
             pstmt.setInt(3, card.getDamage());
             pstmt.setString(4, card.getPackageId());
-            if(card.getName().contains("Spell")){
-                pstmt.setString(5, "Spell");
+            if(card.getName().contains("Fire")){
+                pstmt.setString(5, "Fire");
+            } else if (card.getName().contains("Water")) {
+                pstmt.setString(5, "Water");
             }else{
-                pstmt.setString(5, "Monster");
+                pstmt.setString(5, "Normal");
+            }
+            if(card.getName().contains("Spell")){
+                pstmt.setString(6, "Spell");
+            }else{
+                pstmt.setString(6, "Monster");
             }
             pstmt.execute();
         } catch (SQLException e) {

@@ -18,9 +18,9 @@ public class UserController extends AbstractController {
     private final SessionService sessionService;
 
 
-    public UserController() {
-        this.userService = new UserService();
-        this.sessionService = new SessionService();
+    public UserController(UserService userService, SessionService sessionService) {
+        this.userService = userService;
+        this.sessionService = sessionService;
     }
 
     @Override

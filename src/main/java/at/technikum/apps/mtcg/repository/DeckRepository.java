@@ -19,4 +19,6 @@ public interface DeckRepository {
     void saveCardsInDeck(List<String> cards, String deck_id);
 
     void updateCardsInDeck(List<String> cards, String deck_id);
+
+    boolean cardIsAvailableForTrade(String cardId);
 }

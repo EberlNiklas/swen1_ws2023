@@ -23,10 +23,10 @@ public class DeckController extends AbstractController {
 
     private final DeckService deckService;
 
-    public DeckController() {
-        this.sessionService = new SessionService();
-        this.cardService = new CardService();
-        this.deckService = new DeckService();
+    public DeckController(SessionService sessionService, CardService cardService, DeckService deckService) {
+        this.sessionService = sessionService;
+        this.cardService = cardService;
+        this.deckService = deckService;
     }
 
     @Override
@@ -116,6 +116,12 @@ public class DeckController extends AbstractController {
 
                 if(!deckService.checkIfCardsMatchUser(cardsToPutInDeck, user_id)){
                     return json(HttpStatus.BAD_REQUEST, "Cards dont belong to user");
+                }
+
+                for(String id:cardsToPutInDeck){
+                    if(deckService.cardIsAvailableForTrade(id)){
+                        return notAllowed();
+                    }
                 }
 
                 List<String> cards = deckService.findAll(deck_id);

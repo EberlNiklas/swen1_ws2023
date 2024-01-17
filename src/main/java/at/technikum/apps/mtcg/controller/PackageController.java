@@ -15,7 +15,12 @@ import java.util.Set;
 
 public class PackageController extends AbstractController{
 
-    private final PackageService packageService = new PackageService();
+    private final PackageService packageService;
+
+    public PackageController(PackageService packageService) {
+        this.packageService = packageService;
+    }
+
     @Override
     public boolean supports(String route) {
         return route.startsWith("/packages");

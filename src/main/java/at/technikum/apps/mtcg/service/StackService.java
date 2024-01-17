@@ -10,8 +10,8 @@ public class StackService {
 
     private final StackRepository stackRepository;
 
-    public StackService() {
-        this.stackRepository = new DatabaseStackRepository();
+    public StackService(StackRepository stackRepository) {
+        this.stackRepository = stackRepository;
     }
 
     public List<Stack> findAll(){

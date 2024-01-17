@@ -18,9 +18,9 @@ public class ScoreboardController extends AbstractController{
 
     private final UserService userService;
 
-    public ScoreboardController() {
-        this.sessionService = new SessionService();
-        this.userService = new UserService();
+    public ScoreboardController(SessionService sessionService, UserService userService) {
+        this.sessionService = sessionService;
+        this.userService = userService;
     }
 
     @Override

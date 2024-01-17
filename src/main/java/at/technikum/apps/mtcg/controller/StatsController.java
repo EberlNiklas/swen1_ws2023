@@ -15,9 +15,9 @@ public class StatsController extends AbstractController {
 
     private final UserService userService;
 
-    public StatsController() {
-        this.sessionService = new SessionService();
-        this.userService = new UserService();
+    public StatsController(SessionService sessionService, UserService userService) {
+        this.sessionService = sessionService;
+        this.userService = userService;
     }
 
     @Override

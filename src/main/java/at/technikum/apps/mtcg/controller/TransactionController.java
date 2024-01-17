@@ -17,10 +17,10 @@ public class TransactionController extends AbstractController {
 
     private final StackService stackService;
 
-    public TransactionController() {
-        this.sessionService = new SessionService();
-        this.packageService = new PackageService();
-        this.stackService = new StackService();
+    public TransactionController(SessionService sessionService, PackageService packageService, StackService stackService) {
+        this.sessionService = sessionService;
+        this.packageService = packageService;
+        this.stackService = stackService;
     }
 
     @Override

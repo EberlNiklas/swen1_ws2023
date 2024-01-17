@@ -207,8 +207,22 @@ public class DatabaseUserRepository implements UserRepository{
     }
 
     public String securePassword(String password){
-        Base64.Encoder encoder = Base64.getEncoder();
-        return encoder.encodeToString(password.getBytes());
+        try {
+
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+
+            byte[] hashedBytes = md.digest(password.getBytes());
+
+            StringBuilder sb = new StringBuilder();
+            for (byte b : hashedBytes) {
+                sb.append(String.format("%02x", b));
+            }
+
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

@@ -13,8 +13,8 @@ public class PackageService {
 
     private final PackageRepository packageRepository;
 
-    public PackageService() {
-        this.packageRepository = new DatabasePackageRepository();
+    public PackageService(PackageRepository packageRepository) {
+        this.packageRepository = packageRepository;
     }
 
     public void updateCoins(String username, int costs){

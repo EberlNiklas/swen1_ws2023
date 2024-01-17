@@ -2,6 +2,7 @@ package at.technikum.apps.mtcg;
 
 import at.technikum.apps.mtcg.controller.*;
 import at.technikum.apps.mtcg.entity.Stats;
+import at.technikum.apps.mtcg.service.Injector;
 import at.technikum.server.ServerApplication;
 import at.technikum.server.http.ContentType;
 import at.technikum.server.http.HttpStatus;
@@ -17,16 +18,9 @@ public class MtcgApp implements ServerApplication {
 
     public MtcgApp() {
 
+        Injector injector = new Injector();
 
-        controllers.add(new CardController());
-        controllers.add(new UserController());
-        controllers.add(new SessionController());
-        controllers.add(new PackageController());
-        controllers.add(new TransactionController());
-        controllers.add(new DeckController());
-        controllers.add(new StatsController());
-        controllers.add(new ScoreboardController());
-        controllers.add(new TradingController());
+        this.controllers = injector.createController();
     }
 
     @Override

@@ -10,8 +10,8 @@ public class TradingService {
 
     private final TradeRepository tradeRepository;
 
-    public TradingService(){
-        this.tradeRepository = new DatabaseTradingRepository();
+    public TradingService(TradeRepository tradeRepository){
+        this.tradeRepository = tradeRepository;
     }
 
     public List<Trade> findAllOpenTrades() {

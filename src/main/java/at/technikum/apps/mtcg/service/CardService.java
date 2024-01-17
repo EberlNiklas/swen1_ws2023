@@ -1,5 +1,6 @@
 package at.technikum.apps.mtcg.service;
 
+import at.technikum.apps.mtcg.controller.CardController;
 import at.technikum.apps.mtcg.entity.Card;
 import at.technikum.apps.mtcg.repository.DatabaseCardRepository;
 import at.technikum.apps.mtcg.repository.CardRepository;
@@ -13,8 +14,8 @@ public class CardService {
 
     private final CardRepository cardRepository;
 
-    public CardService() {
-        this.cardRepository = new DatabaseCardRepository();
+    public CardService(CardRepository cardRepository) {
+        this.cardRepository = cardRepository;
     }
 
     public List<Card> findAll() {
