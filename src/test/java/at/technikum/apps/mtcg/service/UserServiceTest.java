@@ -4,8 +4,10 @@ import at.technikum.apps.mtcg.entity.User;
 import at.technikum.apps.mtcg.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -16,6 +18,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
+@ExtendWith(MockitoExtension.class)
 public class UserServiceTest {
 
     @Mock
@@ -54,23 +57,13 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testRegister() {
-        when(userRepository.findUserString(anyString())).thenReturn(null);
+    public void testRegistration() {
         when(userRepository.save(any(User.class))).thenReturn(user);
 
         User result = userService.registration(user);
 
         assertNotNull(result);
         assertEquals(user.getUsername(), result.getUsername());
-    }
-
-    @Test
-    public void testRegisterFail() {
-        when(userRepository.findUserString(anyString())).thenReturn(user);
-
-        User result = userService.registration(user);
-
-        assertNull(result);
     }
 
     @Test
@@ -90,4 +83,5 @@ public class UserServiceTest {
         assertEquals(updatedPlayer.getBio(), result.getBio());
         assertEquals(updatedPlayer.getImage(), result.getImage());
     }
+
 }

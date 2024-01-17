@@ -21,6 +21,7 @@ CREATE TABLE IF NOT EXISTS card (
     name VARCHAR(255) NOT NULL,
     damage INT,
     package_id VARCHAR(255) REFERENCES packages(id) ON DELETE SET NULL,
+    elementType VARCHAR(255),
     type VARCHAR(255)
 );
 
@@ -59,6 +60,29 @@ CREATE TABLE IF NOT EXISTS trade (
     FOREIGN KEY (customerCardId) REFERENCES card(id) ON DELETE CASCADE
 );
 
+CREATE TABLE battle (
+    battle_id VARCHAR(255) PRIMARY KEY,
+    playerA_id VARCHAR(255),
+    playerB_id VARCHAR(255),
+    status VARCHAR(20),
+    rounds INT,
+    winner VARCHAR(255),
+    FOREIGN KEY (playerA_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (playerB_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (winner) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE battleResult (
+    result_id VARCHAR(255) PRIMARY KEY,
+    battle_id VARCHAR(255),
+    roundNumber INT,
+    playerAResult VARCHAR(255),
+    playerBResult VARCHAR(255),
+    roundWinner VARCHAR(255),
+    FOREIGN KEY (battle_id) REFERENCES battle(battle_id) ON DELETE CASCADE,
+    FOREIGN KEY (roundWinner) REFERENCES users(id) ON DELETE CASCADE
+);
+
 
 ALTER TABLE users ADD COLUMN bio VARCHAR(255) DEFAULT NULL;
 
@@ -70,9 +94,17 @@ ALTER TABLE trade ADD COLUMN type VARCHAR(20);
 
 ALTER TABLE trade ADD COLUMN minDamage INT;
 
+ALTER TABLE battleresult
+    ADD COLUMN card_a VARCHAR(20),
+    ADD COLUMN card_b VARCHAR(20),
+    ADD COLUMN damage_a INT,
+    ADD COLUMN damage_b INT,
+    ADD COLUMN e_damage_a INT,
+    ADD COLUMN e_damage_b INT;
 
 
-DROP TABLE card, packages, users, stack, deck, deckcards, trade
+
+DROP TABLE card, packages, users, stack, deck, deckcards, trade, battle, battleResult
 
 
 

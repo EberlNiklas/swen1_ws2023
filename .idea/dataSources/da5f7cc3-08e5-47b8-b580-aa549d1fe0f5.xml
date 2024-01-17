@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.51">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>6649</IntrospectionStateNumber>
+      <IntrospectionStateNumber>10710</IntrospectionStateNumber>
       <ServerVersion>16.1</ServerVersion>
       <StartupTime>1705485906</StartupTime>
       <TimeZones>true ACDT
@@ -1398,7 +1398,7 @@ false posixrules
 13212||10|C|G
 13212||-9223372036854775808|U|G
 13212||10|U|G</Grants>
-      <IntrospectionStateNumber>6649</IntrospectionStateNumber>
+      <IntrospectionStateNumber>10710</IntrospectionStateNumber>
       <ObjectId>16388</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -1485,179 +1485,402 @@ false posixrules
     <schema id="23" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>6649</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-01-17.10:05:59</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>10710</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-01-17.18:30:27</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>524</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
-    <table id="24" parent="23" name="card">
-      <ObjectId>20137</ObjectId>
-      <StateNumber>6644</StateNumber>
+    <table id="24" parent="23" name="battle">
+      <ObjectId>23157</ObjectId>
+      <StateNumber>10563</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="25" parent="23" name="deck">
-      <ObjectId>20166</ObjectId>
-      <StateNumber>6646</StateNumber>
+    <table id="25" parent="23" name="battleresult">
+      <ObjectId>23179</ObjectId>
+      <StateNumber>10571</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="26" parent="23" name="deckcards">
-      <ObjectId>20178</ObjectId>
-      <StateNumber>6647</StateNumber>
+    <table id="26" parent="23" name="card">
+      <ObjectId>23071</ObjectId>
+      <StateNumber>10558</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="27" parent="23" name="packages">
-      <ObjectId>20125</ObjectId>
-      <StateNumber>6643</StateNumber>
+    <table id="27" parent="23" name="deck">
+      <ObjectId>23100</ObjectId>
+      <StateNumber>10560</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="28" parent="23" name="stack">
-      <ObjectId>20149</ObjectId>
-      <StateNumber>6645</StateNumber>
+    <table id="28" parent="23" name="deckcards">
+      <ObjectId>23112</ObjectId>
+      <StateNumber>10561</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <table id="29" parent="23" name="users">
-      <ObjectId>20114</ObjectId>
-      <StateNumber>6643</StateNumber>
+    <table id="29" parent="23" name="packages">
+      <ObjectId>23059</ObjectId>
+      <StateNumber>10557</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
-    <column id="30" parent="24" name="id">
+    <table id="30" parent="23" name="stack">
+      <ObjectId>23083</ObjectId>
+      <StateNumber>10559</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="31" parent="23" name="trade">
+      <ObjectId>23129</ObjectId>
+      <StateNumber>10570</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <table id="32" parent="23" name="users">
+      <ObjectId>23048</ObjectId>
+      <StateNumber>10568</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>postgres</OwnerName>
+    </table>
+    <column id="33" parent="24" name="battle_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>6644</StateNumber>
+      <StateNumber>10563</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="31" parent="24" name="name">
+    <column id="34" parent="24" name="playera_id">
       <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>6644</StateNumber>
+      <StateNumber>10563</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="32" parent="24" name="damage">
+    <column id="35" parent="24" name="playerb_id">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
-      <StateNumber>6644</StateNumber>
+      <StateNumber>10563</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="33" parent="24" name="package_id">
+    <column id="36" parent="24" name="status">
+      <DasType>varchar(20)|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>10563</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="37" parent="24" name="rounds">
+      <DasType>integer|0s</DasType>
+      <Position>5</Position>
+      <StateNumber>10563</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="38" parent="24" name="winner">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>6</Position>
+      <StateNumber>10563</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <foreign-key id="39" parent="24" name="battle_playera_id_fkey">
+      <ColNames>playera_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23164</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>10563</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>23048</RefTableId>
+    </foreign-key>
+    <foreign-key id="40" parent="24" name="battle_playerb_id_fkey">
+      <ColNames>playerb_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23169</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>10563</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>23048</RefTableId>
+    </foreign-key>
+    <foreign-key id="41" parent="24" name="battle_winner_fkey">
+      <ColNames>winner</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23174</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>10563</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>23048</RefTableId>
+    </foreign-key>
+    <index id="42" parent="24" name="battle_pkey">
+      <ColNames>battle_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23162</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>10563</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="43" parent="24" name="battle_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23163</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>10563</StateNumber>
+      <UnderlyingIndexId>23162</UnderlyingIndexId>
+    </key>
+    <column id="44" parent="25" name="result_id">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>10564</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="45" parent="25" name="battle_id">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>10564</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="46" parent="25" name="roundnumber">
+      <DasType>integer|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>10564</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="47" parent="25" name="playeraresult">
       <DasType>varchar(255)|0s</DasType>
       <Position>4</Position>
-      <StateNumber>6644</StateNumber>
+      <StateNumber>10564</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="34" parent="24" name="card_package_id_fkey">
+    <column id="48" parent="25" name="playerbresult">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>5</Position>
+      <StateNumber>10564</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="49" parent="25" name="roundwinner">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>6</Position>
+      <StateNumber>10564</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="50" parent="25" name="card_a">
+      <DasType>varchar(20)|0s</DasType>
+      <Position>7</Position>
+      <StateNumber>10571</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="51" parent="25" name="card_b">
+      <DasType>varchar(20)|0s</DasType>
+      <Position>8</Position>
+      <StateNumber>10571</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="52" parent="25" name="damage_a">
+      <DasType>integer|0s</DasType>
+      <Position>9</Position>
+      <StateNumber>10571</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="53" parent="25" name="damage_b">
+      <DasType>integer|0s</DasType>
+      <Position>10</Position>
+      <StateNumber>10571</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="54" parent="25" name="e_damage_a">
+      <DasType>integer|0s</DasType>
+      <Position>11</Position>
+      <StateNumber>10571</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="55" parent="25" name="e_damage_b">
+      <DasType>integer|0s</DasType>
+      <Position>12</Position>
+      <StateNumber>10571</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="56" parent="25" name="battleresult_battle_id_fkey">
+      <ColNames>battle_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23186</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>10564</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>23157</RefTableId>
+    </foreign-key>
+    <foreign-key id="57" parent="25" name="battleresult_roundwinner_fkey">
+      <ColNames>roundwinner</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23191</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>10564</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>23048</RefTableId>
+    </foreign-key>
+    <index id="58" parent="25" name="battleresult_pkey">
+      <ColNames>result_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23184</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>10564</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="59" parent="25" name="battleresult_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23185</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>10564</StateNumber>
+      <UnderlyingIndexId>23184</UnderlyingIndexId>
+    </key>
+    <column id="60" parent="26" name="id">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>10558</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="61" parent="26" name="name">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>10558</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="62" parent="26" name="damage">
+      <DasType>integer|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>10558</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="63" parent="26" name="package_id">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>10558</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="64" parent="26" name="elementtype">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>5</Position>
+      <StateNumber>10558</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="65" parent="26" name="type">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>6</Position>
+      <StateNumber>10558</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <foreign-key id="66" parent="26" name="card_package_id_fkey">
       <ColNames>package_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20144</ObjectId>
+      <ObjectId>23078</ObjectId>
       <OnDelete>set-null</OnDelete>
-      <StateNumber>6644</StateNumber>
+      <StateNumber>10558</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>20125</RefTableId>
+      <RefTableId>23059</RefTableId>
     </foreign-key>
-    <index id="35" parent="24" name="card_pkey">
+    <index id="67" parent="26" name="card_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20142</ObjectId>
+      <ObjectId>23076</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6644</StateNumber>
+      <StateNumber>10558</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="36" parent="24" name="card_pkey">
+    <key id="68" parent="26" name="card_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20143</ObjectId>
+      <ObjectId>23077</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6644</StateNumber>
-      <UnderlyingIndexId>20142</UnderlyingIndexId>
+      <StateNumber>10558</StateNumber>
+      <UnderlyingIndexId>23076</UnderlyingIndexId>
     </key>
-    <column id="37" parent="25" name="deck_id">
+    <column id="69" parent="27" name="deck_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>6646</StateNumber>
+      <StateNumber>10560</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="38" parent="25" name="user_id">
+    <column id="70" parent="27" name="user_id">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>6646</StateNumber>
+      <StateNumber>10560</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="39" parent="25" name="deck_user_id_fkey">
+    <foreign-key id="71" parent="27" name="deck_user_id_fkey">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20173</ObjectId>
-      <StateNumber>6646</StateNumber>
+      <ObjectId>23107</ObjectId>
+      <StateNumber>10560</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>20114</RefTableId>
+      <RefTableId>23048</RefTableId>
     </foreign-key>
-    <index id="40" parent="25" name="deck_pkey">
+    <index id="72" parent="27" name="deck_pkey">
       <ColNames>deck_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20171</ObjectId>
+      <ObjectId>23105</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6646</StateNumber>
+      <StateNumber>10560</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="41" parent="25" name="deck_pkey">
+    <key id="73" parent="27" name="deck_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20172</ObjectId>
+      <ObjectId>23106</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6646</StateNumber>
-      <UnderlyingIndexId>20171</UnderlyingIndexId>
+      <StateNumber>10560</StateNumber>
+      <UnderlyingIndexId>23105</UnderlyingIndexId>
     </key>
-    <column id="42" parent="26" name="deck_id">
+    <column id="74" parent="28" name="deck_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>6647</StateNumber>
+      <StateNumber>10561</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="43" parent="26" name="card_id">
+    <column id="75" parent="28" name="card_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>6647</StateNumber>
+      <StateNumber>10561</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="44" parent="26" name="deckcards_deck_id_fkey">
+    <foreign-key id="76" parent="28" name="deckcards_deck_id_fkey">
       <ColNames>deck_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20185</ObjectId>
-      <StateNumber>6647</StateNumber>
+      <ObjectId>23119</ObjectId>
+      <StateNumber>10561</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>20166</RefTableId>
+      <RefTableId>23100</RefTableId>
     </foreign-key>
-    <foreign-key id="45" parent="26" name="deckcards_card_id_fkey">
+    <foreign-key id="77" parent="28" name="deckcards_card_id_fkey">
       <ColNames>card_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20190</ObjectId>
-      <StateNumber>6647</StateNumber>
+      <ObjectId>23124</ObjectId>
+      <StateNumber>10561</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>20137</RefTableId>
+      <RefTableId>23071</RefTableId>
     </foreign-key>
-    <index id="46" parent="26" name="deckcards_pkey">
+    <index id="78" parent="28" name="deckcards_pkey">
       <ColNames>deck_id
 card_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20183</ObjectId>
+      <ObjectId>23117</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6647</StateNumber>
+      <StateNumber>10561</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>100
@@ -1667,92 +1890,92 @@ default</CollationNames>
       <CollationParentNames>pg_catalog
 pg_catalog</CollationParentNames>
     </index>
-    <key id="47" parent="26" name="deckcards_pkey">
+    <key id="79" parent="28" name="deckcards_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20184</ObjectId>
+      <ObjectId>23118</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6647</StateNumber>
-      <UnderlyingIndexId>20183</UnderlyingIndexId>
+      <StateNumber>10561</StateNumber>
+      <UnderlyingIndexId>23117</UnderlyingIndexId>
     </key>
-    <column id="48" parent="27" name="id">
+    <column id="80" parent="29" name="id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>6643</StateNumber>
+      <StateNumber>10557</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="49" parent="27" name="user_id">
+    <column id="81" parent="29" name="user_id">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
-      <StateNumber>6643</StateNumber>
+      <StateNumber>10557</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="50" parent="27" name="packages_user_id_fkey">
+    <foreign-key id="82" parent="29" name="packages_user_id_fkey">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20132</ObjectId>
-      <StateNumber>6643</StateNumber>
+      <ObjectId>23066</ObjectId>
+      <StateNumber>10557</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>20114</RefTableId>
+      <RefTableId>23048</RefTableId>
     </foreign-key>
-    <index id="51" parent="27" name="packages_pkey">
+    <index id="83" parent="29" name="packages_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20130</ObjectId>
+      <ObjectId>23064</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6643</StateNumber>
+      <StateNumber>10557</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="52" parent="27" name="packages_pkey">
+    <key id="84" parent="29" name="packages_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20131</ObjectId>
+      <ObjectId>23065</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6643</StateNumber>
-      <UnderlyingIndexId>20130</UnderlyingIndexId>
+      <StateNumber>10557</StateNumber>
+      <UnderlyingIndexId>23064</UnderlyingIndexId>
     </key>
-    <column id="53" parent="28" name="card_id">
+    <column id="85" parent="30" name="card_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>6645</StateNumber>
+      <StateNumber>10559</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="54" parent="28" name="user_id">
+    <column id="86" parent="30" name="user_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>6645</StateNumber>
+      <StateNumber>10559</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <foreign-key id="55" parent="28" name="stack_card_id_fkey">
+    <foreign-key id="87" parent="30" name="stack_card_id_fkey">
       <ColNames>card_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20156</ObjectId>
+      <ObjectId>23090</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>6645</StateNumber>
+      <StateNumber>10559</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>20137</RefTableId>
+      <RefTableId>23071</RefTableId>
     </foreign-key>
-    <foreign-key id="56" parent="28" name="stack_user_id_fkey">
+    <foreign-key id="88" parent="30" name="stack_user_id_fkey">
       <ColNames>user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20161</ObjectId>
+      <ObjectId>23095</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>6645</StateNumber>
+      <StateNumber>10559</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
-      <RefTableId>20114</RefTableId>
+      <RefTableId>23048</RefTableId>
     </foreign-key>
-    <index id="57" parent="28" name="stack_pkey">
+    <index id="89" parent="30" name="stack_pkey">
       <ColNames>card_id
 user_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20154</ObjectId>
+      <ObjectId>23088</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6645</StateNumber>
+      <StateNumber>10559</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationIds>100
@@ -1762,83 +1985,209 @@ default</CollationNames>
       <CollationParentNames>pg_catalog
 pg_catalog</CollationParentNames>
     </index>
-    <key id="58" parent="28" name="stack_pkey">
+    <key id="90" parent="30" name="stack_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20155</ObjectId>
+      <ObjectId>23089</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6645</StateNumber>
-      <UnderlyingIndexId>20154</UnderlyingIndexId>
+      <StateNumber>10559</StateNumber>
+      <UnderlyingIndexId>23088</UnderlyingIndexId>
     </key>
-    <column id="59" parent="29" name="id">
+    <column id="91" parent="31" name="trade_id">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>6642</StateNumber>
+      <StateNumber>10562</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="60" parent="29" name="username">
+    <column id="92" parent="31" name="dealeruserid">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>10562</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="93" parent="31" name="customeruserid">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>10562</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="94" parent="31" name="dealercardid">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>4</Position>
+      <StateNumber>10562</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="95" parent="31" name="customercardid">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>5</Position>
+      <StateNumber>10562</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="96" parent="31" name="status">
+      <DasType>varchar(255)|0s</DasType>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+      <Position>6</Position>
+      <StateNumber>10562</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="97" parent="31" name="type">
+      <DasType>varchar(20)|0s</DasType>
+      <Position>7</Position>
+      <StateNumber>10569</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="98" parent="31" name="mindamage">
+      <DasType>integer|0s</DasType>
+      <Position>8</Position>
+      <StateNumber>10570</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="99" parent="31" name="trade_dealeruserid_fkey">
+      <ColNames>dealeruserid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23137</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>10562</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>23048</RefTableId>
+    </foreign-key>
+    <foreign-key id="100" parent="31" name="trade_customeruserid_fkey">
+      <ColNames>customeruserid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23142</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>10562</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>23048</RefTableId>
+    </foreign-key>
+    <foreign-key id="101" parent="31" name="trade_dealercardid_fkey">
+      <ColNames>dealercardid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23147</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>10562</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>23071</RefTableId>
+    </foreign-key>
+    <foreign-key id="102" parent="31" name="trade_customercardid_fkey">
+      <ColNames>customercardid</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23152</ObjectId>
+      <OnDelete>cascade</OnDelete>
+      <StateNumber>10562</StateNumber>
+      <RefKeyColPositions>1</RefKeyColPositions>
+      <RefTableId>23071</RefTableId>
+    </foreign-key>
+    <index id="103" parent="31" name="trade_pkey">
+      <ColNames>trade_id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23135</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>10562</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="104" parent="31" name="trade_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>23136</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>10562</StateNumber>
+      <UnderlyingIndexId>23135</UnderlyingIndexId>
+    </key>
+    <column id="105" parent="32" name="id">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>10556</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="106" parent="32" name="username">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>6642</StateNumber>
+      <StateNumber>10556</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="61" parent="29" name="password">
+    <column id="107" parent="32" name="password">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>6642</StateNumber>
+      <StateNumber>10556</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="62" parent="29" name="points">
+    <column id="108" parent="32" name="points">
       <DasType>integer|0s</DasType>
       <DefaultExpression>100</DefaultExpression>
       <Position>4</Position>
-      <StateNumber>6642</StateNumber>
+      <StateNumber>10556</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="63" parent="29" name="coins">
+    <column id="109" parent="32" name="coins">
       <DasType>integer|0s</DasType>
       <DefaultExpression>20</DefaultExpression>
       <Position>5</Position>
-      <StateNumber>6642</StateNumber>
+      <StateNumber>10556</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="64" parent="29" name="users_pkey">
+    <column id="110" parent="32" name="bio">
+      <DasType>varchar(255)|0s</DasType>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+      <Position>6</Position>
+      <StateNumber>10566</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="111" parent="32" name="image">
+      <DasType>varchar(20)|0s</DasType>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+      <Position>7</Position>
+      <StateNumber>10567</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="112" parent="32" name="name">
+      <DasType>varchar(20)|0s</DasType>
+      <DefaultExpression>NULL::character varying</DefaultExpression>
+      <Position>8</Position>
+      <StateNumber>10568</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="113" parent="32" name="users_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20121</ObjectId>
+      <ObjectId>23055</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6642</StateNumber>
+      <StateNumber>10556</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <index id="65" parent="29" name="users_username_key">
+    <index id="114" parent="32" name="users_username_key">
       <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20123</ObjectId>
-      <StateNumber>6642</StateNumber>
+      <ObjectId>23057</ObjectId>
+      <StateNumber>10556</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="66" parent="29" name="users_pkey">
+    <key id="115" parent="32" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20122</ObjectId>
+      <ObjectId>23056</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>6642</StateNumber>
-      <UnderlyingIndexId>20121</UnderlyingIndexId>
+      <StateNumber>10556</StateNumber>
+      <UnderlyingIndexId>23055</UnderlyingIndexId>
     </key>
-    <key id="67" parent="29" name="users_username_key">
+    <key id="116" parent="32" name="users_username_key">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>20124</ObjectId>
-      <StateNumber>6642</StateNumber>
-      <UnderlyingIndexId>20123</UnderlyingIndexId>
+      <ObjectId>23058</ObjectId>
+      <StateNumber>10556</StateNumber>
+      <UnderlyingIndexId>23057</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>
