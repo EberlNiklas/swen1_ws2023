@@ -65,12 +65,14 @@ public class DeckController extends AbstractController {
             List<String> cardsInDeck = deckService.findAll(deck_id);
 
             if(request.getRoute().equals("/deck?format=plain")){
-                List<String> cardPlain = new ArrayList<>();
+                List<Card> cardPlain = new ArrayList<>();
+                String cards = "";
                 for (String id:cardsInDeck) {
                     Card card = cardService.find(id);
-                    cardPlain.add(card.toString());
+                    cardPlain.add(card);
+                    cards = cardPlain.toString();
                 }
-                return json(HttpStatus.OK, cardPlain.toString());
+                return json(HttpStatus.OK, cards.replace("[", "").replace("]", "").replace(",", ""));
             }
 
             ObjectMapper objectMapper = new ObjectMapper();

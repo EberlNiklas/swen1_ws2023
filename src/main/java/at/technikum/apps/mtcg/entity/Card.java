@@ -60,11 +60,9 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", damage='" + damage + '\'' +
-                ", packageId='" + packageId + '\'' +
-                '}';
+        return "Card" + " " +
+                "ID=" + id + '\n' +
+                "Name=" + name + '\n' +
+                "Damage=" + damage + '\n';
     }
 }
